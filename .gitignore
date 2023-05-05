@@ -1,0 +1,7 @@
+.bin
+
+# webui
+node_modules
+.nuxt
+yarn-error.lock
+package.lock

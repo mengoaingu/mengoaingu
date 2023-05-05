@@ -1,0 +1,133 @@
+syntax="proto3";
+
+package go.todoapp.proto.task;
+
+import "google/protobuf/timestamp.proto";
+import "google/api/annotations.proto";
+import "protoc-gen-openapiv2/options/annotations.proto";
+
+option go_package = "backend/proto/gen";
+
+service TaskService {
+    rpc GetListTask(GetListTaskRequest) returns (GetListTaskResponse) {
+        option (google.api.http) = {
+            get: "/v1/tasks"
+        };
+        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
+            summary: "List task"
+            description: "List task on the server."
+            tags: "Task"
+        };
+    }
+    rpc GetTask(GetTaskRequest) returns (GetTaskResponse) {
+        option (google.api.http) = {
+            get: "/v1/tasks/{task_id}"
+        };
+        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
+            summary: "Get task"
+            description: "Get task on the server."
+            tags: "Task"
+        };
+    }
+    rpc CreateTask(CreateTaskRequest) returns (CreateTaskResponse) {
+        option (google.api.http) = {
+            post: "/v1/tasks"
+            body: "*"
+        };
+        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
+            summary: "Create task"
+            description: "Create task on the server."
+            tags: "Task"
+        };
+    }
+    rpc UpdateTask(UpdateTaskRequest) returns (UpdateTaskResponse) {
+        option (google.api.http) = {
+            put: "/v1/tasks/{task_id}"
+            body: "*"
+        };
+        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
+            summary: "Update task"
+            description: "Update task on the server."
+            tags: "Task"
+        };
+    }
+    rpc DeleteTask(DeleteTaskRequest) returns (DeleteTaskResponse) {
+        option (google.api.http) = {
+            delete: "/v1/tasks/{task_id}"
+        };
+        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
+            summary: "Delete task"
+            description: "Delete task on the server."
+            tags: "Task"
+        };
+    }
+}
+
+
+message Task {
+    int64 id = 1;
+    string name = 2;
+    string description = 3;
+    string user_id = 4;
+    Priority priority = 5;
+    TaskStatus status = 6;
+
+}
+  
+enum TaskStatus {
+    TASK_STATUS_INVALID = 0;
+    TASK_STATUS_INPROGRESS = 1;
+    TASK_STATUS_COMPLETED = 2;
+    TASK_STATUS_CANCELLED = 3;
+}
+
+enum Priority {
+    PRIORIRY_INVALID = 0;
+    PRIORIRY_LOW = 1;
+    PRIORIRY_MEDIUM = 2;
+    PRIORIRY_HIGH = 3;
+}
+
+message GetListTaskRequest {
+    int64 date = 1;
+    string name = 2;
+}
+message GetListTaskResponse {
+    Data data = 1;
+    message Data {
+        repeated Task tasks = 1;
+        int64 total = 2;
+    }
+
+}
+
+
+message GetTaskRequest {
+    int64 task_id = 1;
+}
+
+message GetTaskResponse {
+    Data data = 1;
+    message Data {
+        Task task = 1;
+    }
+}
+
+message CreateTaskRequest {
+    Task task = 1;
+}
+
+message CreateTaskResponse {}
+
+message UpdateTaskRequest {
+    int64 task_id = 1;
+    Task task = 2;
+}
+
+message UpdateTaskResponse {}
+
+message DeleteTaskRequest {
+    int64 task_id = 1;
+}
+
+message DeleteTaskResponse {}

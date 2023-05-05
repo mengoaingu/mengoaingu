@@ -1,0 +1,328 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "task.proto",
+    "version": "version not set"
+  },
+  "tags": [
+    {
+      "name": "TaskService"
+    }
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/v1/tasks": {
+      "get": {
+        "summary": "List task",
+        "description": "List task on the server.",
+        "operationId": "TaskService_GetListTask",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/taskGetListTaskResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "date",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "name",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Task"
+        ]
+      },
+      "post": {
+        "summary": "Create task",
+        "description": "Create task on the server.",
+        "operationId": "TaskService_CreateTask",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/taskCreateTaskResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/taskCreateTaskRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Task"
+        ]
+      }
+    },
+    "/v1/tasks/{taskId}": {
+      "get": {
+        "summary": "Get task",
+        "description": "Get task on the server.",
+        "operationId": "TaskService_GetTask",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/taskGetTaskResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "taskId",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "int64"
+          }
+        ],
+        "tags": [
+          "Task"
+        ]
+      },
+      "delete": {
+        "summary": "Delete task",
+        "description": "Delete task on the server.",
+        "operationId": "TaskService_DeleteTask",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/taskDeleteTaskResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "taskId",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "int64"
+          }
+        ],
+        "tags": [
+          "Task"
+        ]
+      },
+      "put": {
+        "summary": "Update task",
+        "description": "Update task on the server.",
+        "operationId": "TaskService_UpdateTask",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/taskUpdateTaskResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "taskId",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "task": {
+                  "$ref": "#/definitions/taskTask"
+                }
+              }
+            }
+          }
+        ],
+        "tags": [
+          "Task"
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "protobufAny": {
+      "type": "object",
+      "properties": {
+        "@type": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": {}
+    },
+    "rpcStatus": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "details": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/protobufAny"
+          }
+        }
+      }
+    },
+    "taskCreateTaskRequest": {
+      "type": "object",
+      "properties": {
+        "task": {
+          "$ref": "#/definitions/taskTask"
+        }
+      }
+    },
+    "taskCreateTaskResponse": {
+      "type": "object"
+    },
+    "taskDeleteTaskResponse": {
+      "type": "object"
+    },
+    "taskGetListTaskResponse": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/taskGetListTaskResponseData"
+        }
+      }
+    },
+    "taskGetListTaskResponseData": {
+      "type": "object",
+      "properties": {
+        "tasks": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/taskTask"
+          }
+        },
+        "total": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "taskGetTaskResponse": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/taskGetTaskResponseData"
+        }
+      }
+    },
+    "taskGetTaskResponseData": {
+      "type": "object",
+      "properties": {
+        "task": {
+          "$ref": "#/definitions/taskTask"
+        }
+      }
+    },
+    "taskPriority": {
+      "type": "string",
+      "enum": [
+        "PRIORIRY_INVALID",
+        "PRIORIRY_LOW",
+        "PRIORIRY_MEDIUM",
+        "PRIORIRY_HIGH"
+      ],
+      "default": "PRIORIRY_INVALID"
+    },
+    "taskTask": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "userId": {
+          "type": "string"
+        },
+        "priority": {
+          "$ref": "#/definitions/taskPriority"
+        },
+        "status": {
+          "$ref": "#/definitions/taskTaskStatus"
+        }
+      }
+    },
+    "taskTaskStatus": {
+      "type": "string",
+      "enum": [
+        "TASK_STATUS_INVALID",
+        "TASK_STATUS_INPROGRESS",
+        "TASK_STATUS_COMPLETED",
+        "TASK_STATUS_CANCELLED"
+      ],
+      "default": "TASK_STATUS_INVALID"
+    },
+    "taskUpdateTaskResponse": {
+      "type": "object"
+    }
+  }
+}

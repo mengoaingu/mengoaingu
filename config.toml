@@ -1,0 +1,14 @@
+[server]
+name = "simple_app_server"
+version = "1.0.0"
+host = "localhost"
+port_grpc = 9090
+port_rest_external = 8080
+port_rest_internal = 8081
+logger_level = "info"
+
+[tasks.mysql]
+dsn = "root:123456@tcp(127.0.0.1:3306)/tasks?charset=utf8mb4&parseTime=True&loc=Local&multiStatements=true"
+
+[profile.mysql]
+dsn = "root:123456@tcp(127.0.0.1:3306)/profile?charset=utf8mb4&parseTime=True&loc=Local&multiStatements=true"

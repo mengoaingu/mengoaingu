@@ -1,0 +1,56 @@
+syntax="proto3";
+
+package go.todoapp.proto.profile;
+
+import "google/api/annotations.proto";
+import "protoc-gen-openapiv2/options/annotations.proto";
+
+option go_package = "backend/proto/gen";
+
+service ProfileService {
+  rpc Authorize(AuthorizeRequest) returns (AuthorizeResponse) {
+    option (google.api.http) = {
+      post: "/v1/passport/auth"
+    };
+    option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
+      summary: "Get Profile"
+      description: "Get Profile on the server."
+      tags: "Profile"
+    };
+  }
+
+  // rpc Login(LoginRequest) returns (LoginResponse) {
+  //   option (google.api.http) = {
+  //     get: "/v1/api/items-by-types/{item_types}"
+  //   };
+  //   option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
+  //     summary: "List items by type"
+  //     description: "List items by type on the server."
+  //     tags: "ItemTypes"
+  //   };
+  // }
+}
+
+message AuthorizeRequest {
+  string id_token = 1;
+}
+message AuthorizeResponse {
+  Data data = 1;
+  message Data {
+    Profile profile = 1;
+  }
+}
+
+// message LoginRequest{
+//   string item_types = 1;
+// }
+// message LoginResponse{
+//   repeated ItemDto items = 1;
+// }
+
+message Profile {
+  string user_id = 1;
+  string display_name = 2;
+  string email = 5;
+}
+
