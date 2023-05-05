@@ -1,3 +1,3 @@
 <template>
-    <div>Welcome to .......................</div>
+    <div>Mengoaingu.com nice b</div>
 </template>

@@ -9,6 +9,7 @@
     "postinstall": "nuxt prepare"
   },
   "devDependencies": {
+    "@nuxt/bridge": "^0.10.1",
     "@types/lodash": "^4.14.194",
     "@types/node": "^18",
     "nuxt": "^3.4.1",

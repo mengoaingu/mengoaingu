@@ -1,4 +1,5 @@
 <script setup lang="ts"></script>
 <template>
-    <div>Logo</div>
+    <img src="/download.png" />
+    <div>Logooooo</div>
 </template>

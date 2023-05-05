@@ -3,5 +3,7 @@
 # webui
 node_modules
 .nuxt
+.output
+dist
 yarn-error.lock
 package.lock

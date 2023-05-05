@@ -1,0 +1,862 @@
+[
+    {
+        "question_id": 38749,
+        "topic_id": 0,
+        "course_id": 234,
+        "case_study_id": null,
+        "lab_id": null,
+        "question_text": "<p>Which of the following statements are true with respect to the Business Analysis?</p>",
+        "mark": 1,
+        "is_partially_correct": false,
+        "question_type": "1",
+        "difficulty_level": "0",
+        "general_feedback": "<p>Choice D is the correct answer.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Business analysis may be performed within the boundaries of a project or throughout enterprise evolution and continuous improvement. It can be used to:</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p><!--[if !supportLists]-->1)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <!--[endif]-->Understand the current state</p>\r\n\r\n<p><!--[if !supportLists]-->2)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <!--[endif]-->Define the future state</p>\r\n\r\n<p><!--[if !supportLists]-->3)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <!--[endif]-->Determine the activities required to move from the current to the future state</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Choice A is one of the valid statement with respect to the Business Analysis.</p>\r\n\r\n<p>Choice B is another valid statement with respect to the Business Analysis.</p>\r\n\r\n<p>Choice C is another valid statement with respect to the Business Analysis.</p>\r\n\r\n<p>Choice D is correct, since all the choices A, B and C are the valid statement with respect to the Business Analysis.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p><strong>Reference</strong>: Page 2 of BABOK&reg; Guide for more information.</p>\r\n\r\n<p>Hence choice D is correct.</p>",
+        "is_active": true,
+        "answer_list": [
+            {
+                "question_answer_id": 28847,
+                "question_id": 38749,
+                "answers": [
+                    {
+                        "choice": "<p>It can be used to understand the current state</p>",
+                        "correct": false,
+                        "feedback": ""
+                    },
+                    {
+                        "choice": "<p>It can be used to define the future state</p>",
+                        "correct": false,
+                        "feedback": ""
+                    },
+                    {
+                        "choice": "<p>It can be used to determine the activities required to move from the current to the future state</p>",
+                        "correct": false,
+                        "feedback": ""
+                    },
+                    {
+                        "choice": "<p>All of the above</p>",
+                        "correct": true,
+                        "feedback": ""
+                    }
+                ]
+            }
+        ],
+        "topic_name": "Other"
+    },
+    {
+        "question_id": 38750,
+        "topic_id": 0,
+        "course_id": 234,
+        "case_study_id": null,
+        "lab_id": null,
+        "question_text": "<p>Which of the following are considered as the valid activities performed by the Business Analyst?</p>",
+        "mark": 1,
+        "is_partially_correct": false,
+        "question_type": "1",
+        "difficulty_level": "0",
+        "general_feedback": "<p>Choice D is the correct answer.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>The activities that business analysts perform include:</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p><!--[if !supportLists]-->1)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <!--[endif]-->Understanding enterprise problems and goals,</p>\r\n\r\n<p><!--[if !supportLists]-->2)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <!--[endif]-->Analyzing needs and solutions,</p>\r\n\r\n<p><!--[if !supportLists]-->3)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <!--[endif]-->Devising strategies,</p>\r\n\r\n<p><!--[if !supportLists]-->4)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <!--[endif]-->Driving change, and</p>\r\n\r\n<p><!--[if !supportLists]-->5)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <!--[endif]-->Facilitating stakeholder collaboration.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Choice A is one of the valid activity performed by the business analyst.</p>\r\n\r\n<p>Choice B is another valid activity performed by the business analyst.</p>\r\n\r\n<p>Choice C is another valid activity performed by the business analyst.</p>\r\n\r\n<p>Choice D is correct, since all the choices A, B and C are the valid activity performed by the business analyst.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p><strong>Reference</strong>: Page 3 of BABOK&reg; Guide for more information.</p>\r\n\r\n<p>Hence choice D is correct.</p>",
+        "is_active": true,
+        "answer_list": [
+            {
+                "question_answer_id": 28848,
+                "question_id": 38750,
+                "answers": [
+                    {
+                        "choice": "<p>Understanding enterprise problems and goals</p>",
+                        "correct": false,
+                        "feedback": ""
+                    },
+                    {
+                        "choice": "<p>Analyzing needs and solutions</p>",
+                        "correct": false,
+                        "feedback": ""
+                    },
+                    {
+                        "choice": "<p>Devising strategies</p>",
+                        "correct": false,
+                        "feedback": ""
+                    },
+                    {
+                        "choice": "<p>All of the above&nbsp;</p>",
+                        "correct": true,
+                        "feedback": ""
+                    }
+                ]
+            }
+        ],
+        "topic_name": "Other"
+    },
+    {
+        "question_id": 38751,
+        "topic_id": 0,
+        "course_id": 234,
+        "case_study_id": null,
+        "lab_id": null,
+        "question_text": "<p>Which of the following are considered as the core concepts of the Business Analysis Core Concept Model&trade;?</p>",
+        "mark": 1,
+        "is_partially_correct": false,
+        "question_type": "1",
+        "difficulty_level": "0",
+        "general_feedback": "<p>Choice D is the correct answer.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>The six core concepts in the BACCM are:</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p><!--[if !supportLists]-->1)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <!--[endif]-->Change</p>\r\n\r\n<p><!--[if !supportLists]-->2)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <!--[endif]-->Need</p>\r\n\r\n<p><!--[if !supportLists]-->3)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <!--[endif]-->Solution</p>\r\n\r\n<p><!--[if !supportLists]-->4)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <!--[endif]-->Stakeholder</p>\r\n\r\n<p><!--[if !supportLists]-->5)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <!--[endif]-->Value</p>\r\n\r\n<p><!--[if !supportLists]-->6)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <!--[endif]-->Context</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Choice A is one of the core concepts in the BACCM.</p>\r\n\r\n<p>Choice B is another core concept in the BACCM.</p>\r\n\r\n<p>Choice C is another core concept in the BACCM.</p>\r\n\r\n<p>Choice D is correct, since all the choices A, B and C are the valid core concepts in the BACCM.&nbsp;</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p><strong>Reference</strong>: Page 12 of BABOK&reg; Guide for more information.</p>\r\n\r\n<p>Hence choice D is correct.</p>",
+        "is_active": true,
+        "answer_list": [
+            {
+                "question_answer_id": 28849,
+                "question_id": 38751,
+                "answers": [
+                    {
+                        "choice": "<p>Change</p>",
+                        "correct": false,
+                        "feedback": ""
+                    },
+                    {
+                        "choice": "<p>Need</p>",
+                        "correct": false,
+                        "feedback": ""
+                    },
+                    {
+                        "choice": "<p>Solution</p>",
+                        "correct": false,
+                        "feedback": ""
+                    },
+                    {
+                        "choice": "<p>All of the above</p>",
+                        "correct": true,
+                        "feedback": ""
+                    }
+                ]
+            }
+        ],
+        "topic_name": "Other"
+    },
+    {
+        "question_id": 38752,
+        "topic_id": 0,
+        "course_id": 234,
+        "case_study_id": null,
+        "lab_id": null,
+        "question_text": "<p>Who is responsible for managing the work required to deliver a solution that meets a business need and for ensuring that the project&rsquo;s objectives are met while balancing the project factors including scope, budget, schedule, resources, quality and risk?</p>",
+        "mark": 1,
+        "is_partially_correct": false,
+        "question_type": "1",
+        "difficulty_level": "0",
+        "general_feedback": "<p>Choice B is the correct answer.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Choice A is incorrect, since Business Analyst are responsible for all business analysis activities and not related to the management of the work as mentioned in the given situation.</p>\r\n\r\n<p>Choice B is correct, since Project managers are responsible for managing the work required to deliver a solution that meets a business need, and for ensuring that the project&#39;s objectives are met while balancing the project factors including scope, budget, schedule, resources, quality, and risk.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Choice C is incorrect, since Regulators are responsible for the definition and enforcement of standards.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Choice D is incorrect, since choice B is correct.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p><strong>Reference</strong>: Page 17 &amp; 18 of BABOK&reg; Guide for more information.</p>\r\n\r\n<p>Hence choice B is correct, whereas choices A, C and D are incorrect.</p>",
+        "is_active": true,
+        "answer_list": [
+            {
+                "question_answer_id": 28850,
+                "question_id": 38752,
+                "answers": [
+                    {
+                        "choice": "<p>Business Analyst</p>",
+                        "correct": false,
+                        "feedback": ""
+                    },
+                    {
+                        "choice": "<p>Project Manager</p>",
+                        "correct": true,
+                        "feedback": ""
+                    },
+                    {
+                        "choice": "<p>Regulator</p>",
+                        "correct": false,
+                        "feedback": ""
+                    },
+                    {
+                        "choice": "<p>None of the above</p>",
+                        "correct": false,
+                        "feedback": ""
+                    }
+                ]
+            }
+        ],
+        "topic_name": "Other"
+    },
+    {
+        "question_id": 38753,
+        "topic_id": 0,
+        "course_id": 234,
+        "case_study_id": null,
+        "lab_id": null,
+        "question_text": "<p>During business analysis planning and monitoring, business analysts are involved in some of the activities. Which of the following are the valid activities of business analysts?</p>",
+        "mark": 1,
+        "is_partially_correct": false,
+        "question_type": "1",
+        "difficulty_level": "0",
+        "general_feedback": "<p>Choice D is the correct answer.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Choice A is one of the valid activities of the business analyst related to the core concept change.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Choice B is one of the valid activities of the business analyst related to the core concept need.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Choice C is one of the valid activities of the business analyst related to the core concept value.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Choice D is correct, since all the given statements are the valid activities of the business analyst.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p><strong>Reference</strong>: Page 22 of BABOK&reg; Guide for more information.</p>\r\n\r\n<p>Hence choice D is correct.</p>",
+        "is_active": true,
+        "answer_list": [
+            {
+                "question_answer_id": 28851,
+                "question_id": 38753,
+                "answers": [
+                    {
+                        "choice": "<p>Are responsible for determining how changes to business analysis results will be requested and authorized</p>",
+                        "correct": false,
+                        "feedback": ""
+                    },
+                    {
+                        "choice": "<p>Choose a business analysis approach that provides adequate analysis for the change</p>",
+                        "correct": false,
+                        "feedback": ""
+                    },
+                    {
+                        "choice": "<p>Conduct performance analysis to ensure business analysis activities continue to produce sufficient value for the stakeholders.</p>",
+                        "correct": false,
+                        "feedback": ""
+                    },
+                    {
+                        "choice": "<p>All of the above</p>",
+                        "correct": true,
+                        "feedback": ""
+                    }
+                ]
+            }
+        ],
+        "topic_name": "Other"
+    },
+    {
+        "question_id": 38754,
+        "topic_id": 0,
+        "course_id": 234,
+        "case_study_id": null,
+        "lab_id": null,
+        "question_text": "<p>Which of the following factors would not affect the timing of the business analysis activities?</p>",
+        "mark": 1,
+        "is_partially_correct": false,
+        "question_type": "1",
+        "difficulty_level": "0",
+        "general_feedback": "<p>Choice D is the correct answer.&nbsp;&nbsp;&nbsp;&nbsp;</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>The timing of business analysis activities can also be affected by:</p>\r\n\r\n<p><!--[if !supportLists]-->1)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <!--[endif]-->The availability of resources,</p>\r\n\r\n<p><!--[if !supportLists]-->2)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <!--[endif]-->Priority and/or urgency of the initiative,</p>\r\n\r\n<p><!--[if !supportLists]-->3)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <!--[endif]-->Other concurrent initiatives, or</p>\r\n\r\n<p><!--[if !supportLists]-->4)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <!--[endif]-->Constraints such as contract terms or regulatory deadlines.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Choice A is not correct, since the availability of resources is one of the valid factor which affects the timing of business analysis activities.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Choice B is not correct, since priority and/or urgency of the initiative is another valid factor which affects the timing of business analysis activities.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Choice C is not correct, since Constraints such as contract terms or regulatory deadlines is another valid factor which affects the timing of business analysis activities.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Choice D is correct, since all the choices A, B and C are the valid factor which affects the timing of business analysis activities.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p><strong>Reference</strong>: Page 28 of BABOK&reg; Guide for more information.</p>\r\n\r\n<p>Hence choice D is correct, whereas choices A, B and C are incorrect.</p>",
+        "is_active": true,
+        "answer_list": [
+            {
+                "question_answer_id": 28852,
+                "question_id": 38754,
+                "answers": [
+                    {
+                        "choice": "<p>The availability of resources</p>",
+                        "correct": false,
+                        "feedback": ""
+                    },
+                    {
+                        "choice": "<p>Priority and/or urgency of the initiative</p>",
+                        "correct": false,
+                        "feedback": ""
+                    },
+                    {
+                        "choice": "<p>Constraints such as contract terms or regulatory deadlines</p>",
+                        "correct": false,
+                        "feedback": ""
+                    },
+                    {
+                        "choice": "<p>None of the above</p>",
+                        "correct": true,
+                        "feedback": ""
+                    }
+                ]
+            }
+        ],
+        "topic_name": "Other"
+    },
+    {
+        "question_id": 38755,
+        "topic_id": 0,
+        "course_id": 234,
+        "case_study_id": null,
+        "lab_id": null,
+        "question_text": "<p>It is a technique used to review existing organizational assets that might assist in planning stakeholder engagement. Which of the following technique is correct with respect to the same?</p>",
+        "mark": 1,
+        "is_partially_correct": false,
+        "question_type": "1",
+        "difficulty_level": "0",
+        "general_feedback": "<p>Choice C is the correct answer.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Document analysis is the technique used to review existing organizational assets that might assist in planning stakeholder engagement.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Choice A is not correct, since Business Rules Analysis is used to identify stakeholders who were the source of the business rules.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Choice B is not correct, since Brainstorming is used to produce the stakeholder list and identify stakeholder roles and responsibilities.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Choice C is correct, since Document analysis is the technique used to review existing organizational assets that might assist in planning stakeholder engagement.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Choice D is not correct, since choice C is correct.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p><strong>Reference</strong>: Page 35 of BABOK&reg; Guide for more information.</p>\r\n\r\n<p>Hence choice C is correct, whereas choices A, B and D are incorrect.</p>",
+        "is_active": true,
+        "answer_list": [
+            {
+                "question_answer_id": 28853,
+                "question_id": 38755,
+                "answers": [
+                    {
+                        "choice": "<p>Business Rules Analysis</p>",
+                        "correct": false,
+                        "feedback": ""
+                    },
+                    {
+                        "choice": "<p>Brainstorming</p>",
+                        "correct": false,
+                        "feedback": ""
+                    },
+                    {
+                        "choice": "<p>Document Analysis</p>",
+                        "correct": true,
+                        "feedback": ""
+                    },
+                    {
+                        "choice": "<p>None of the above</p>",
+                        "correct": false,
+                        "feedback": ""
+                    }
+                ]
+            }
+        ],
+        "topic_name": "Other"
+    },
+    {
+        "question_id": 38756,
+        "topic_id": 0,
+        "course_id": 234,
+        "case_study_id": null,
+        "lab_id": null,
+        "question_text": "<p>Which of the following are the major assumptions in place in agile environments?</p>",
+        "mark": 1,
+        "is_partially_correct": false,
+        "question_type": "1",
+        "difficulty_level": "0",
+        "general_feedback": "<p>Choice D is the correct answer.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Choice A is one of the major assumptions in place in agile environments.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Choice B is another major assumption in place in agile environments.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Choice C is another major assumption in place in agile environments</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Choice D is correct, since all the choices A, B and C are the major assumptions in place in agile environments.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p><strong>Reference</strong>: Page 371 of BABOK&reg; Guide for more information.</p>\r\n\r\n<p>Hence choice D is correct.</p>",
+        "is_active": true,
+        "answer_list": [
+            {
+                "question_answer_id": 28854,
+                "question_id": 38756,
+                "answers": [
+                    {
+                        "choice": "<p>Change requirements are welcome even late in development</p>",
+                        "correct": false,
+                        "feedback": ""
+                    },
+                    {
+                        "choice": "<p>The business problem can be reduced to a set of needs that can be met using some combination of technology and business process change</p>",
+                        "correct": false,
+                        "feedback": ""
+                    },
+                    {
+                        "choice": "<p>Agile initiatives have fully engaged customers and empowered SMEs with complete buy-in to the agile approach.</p>",
+                        "correct": false,
+                        "feedback": ""
+                    },
+                    {
+                        "choice": "<p>All of the above</p>",
+                        "correct": true,
+                        "feedback": ""
+                    }
+                ]
+            }
+        ],
+        "topic_name": "Other"
+    },
+    {
+        "question_id": 38757,
+        "topic_id": 0,
+        "course_id": 234,
+        "case_study_id": null,
+        "lab_id": null,
+        "question_text": "<p>Who will ensure<strong> </strong>that the product meets expectations before a product is released, and identifies new opportunities that will add value to the business?</p>",
+        "mark": 1,
+        "is_partially_correct": false,
+        "question_type": "1",
+        "difficulty_level": "0",
+        "general_feedback": "<p>Choice B is the correct answer.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>The business analyst ensures that the product meets expectations before a product is released and identifies new opportunities that will add value to the business.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Choice A is not correct, since Project Manager is not responsible to ensures that the product meets expectations before a product is released and identifies new opportunities that will add value to the business.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Choice B is correct, since the business analyst ensures that the product meets expectations before a product is released and identifies new opportunities that will add value to the business.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Choice C is not correct, since Agile team is not responsible to ensures that the product meets expectations before a product is released and identifies new opportunities that will add value to the business.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Choice D is not correct, since choice B is correct.&nbsp;&nbsp;</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p><strong>Reference</strong>: Page 380 of BABOK&reg; Guide for more information.</p>\r\n\r\n<p>Hence choice B is correct, whereas choices A, C and D are incorrect.</p>",
+        "is_active": true,
+        "answer_list": [
+            {
+                "question_answer_id": 28855,
+                "question_id": 38757,
+                "answers": [
+                    {
+                        "choice": "<p>Project Manager</p>",
+                        "correct": false,
+                        "feedback": ""
+                    },
+                    {
+                        "choice": "<p>Business Analyst</p>",
+                        "correct": true,
+                        "feedback": ""
+                    },
+                    {
+                        "choice": "<p>Agile team</p>",
+                        "correct": false,
+                        "feedback": ""
+                    },
+                    {
+                        "choice": "<p>None of the above</p>",
+                        "correct": false,
+                        "feedback": ""
+                    }
+                ]
+            }
+        ],
+        "topic_name": "Other"
+    },
+    {
+        "question_id": 38758,
+        "topic_id": 0,
+        "course_id": 234,
+        "case_study_id": null,
+        "lab_id": null,
+        "question_text": "<p>Which of the following need not be considered in the learning techniques?</p>",
+        "mark": 1,
+        "is_partially_correct": false,
+        "question_type": "1",
+        "difficulty_level": "0",
+        "general_feedback": "<p>Choice D is the correct answer.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Choice A is not correct, since Visual is one of the important thing which needs to be considered in the learning techniques.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Choice B is not correct, since Auditory is another important thing which needs to be considered in the learning techniques.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Choice C is not correct, since Kinesthetic is another important thing which needs to be considered in the learning techniques.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Choice D is correct, since all the choices A, B and C are the important things which needs to be considered in the learning techniques.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p><strong>Reference</strong>: Page 190 of BABOK&reg; Guide for more information.</p>\r\n\r\n<p>Hence choice D is correct, whereas choices A, B and C are incorrect.</p>",
+        "is_active": true,
+        "answer_list": [
+            {
+                "question_answer_id": 28856,
+                "question_id": 38758,
+                "answers": [
+                    {
+                        "choice": "<p>Visual</p>",
+                        "correct": false,
+                        "feedback": ""
+                    },
+                    {
+                        "choice": "<p>Auditory</p>",
+                        "correct": false,
+                        "feedback": ""
+                    },
+                    {
+                        "choice": "<p>Kinesthetic</p>",
+                        "correct": false,
+                        "feedback": ""
+                    },
+                    {
+                        "choice": "<p>None of the above&nbsp;</p>",
+                        "correct": true,
+                        "feedback": ""
+                    }
+                ]
+            }
+        ],
+        "topic_name": "Other"
+    },
+    {
+        "question_id": 38759,
+        "topic_id": 0,
+        "course_id": 234,
+        "case_study_id": null,
+        "lab_id": null,
+        "question_text": "<p>Which of the following are considered as the core competencies of Analytical Thinking and Problem Solving?</p>",
+        "mark": 1,
+        "is_partially_correct": false,
+        "question_type": "1",
+        "difficulty_level": "0",
+        "general_feedback": "<p>Choice D is the correct answer.&nbsp;&nbsp;&nbsp;&nbsp;</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Analytical Thinking and Problem-Solving core competencies include:</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p><!--[if !supportLists]-->1)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <!--[endif]-->Creative Thinking</p>\r\n\r\n<p><!--[if !supportLists]-->2)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <!--[endif]-->Decision Making</p>\r\n\r\n<p><!--[if !supportLists]-->3)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <!--[endif]-->Learning</p>\r\n\r\n<p><!--[if !supportLists]-->4)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <!--[endif]-->Problem Solving</p>\r\n\r\n<p><!--[if !supportLists]-->5)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <!--[endif]-->Systems Thinking</p>\r\n\r\n<p><!--[if !supportLists]-->6)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <!--[endif]-->Conceptual Thinking</p>\r\n\r\n<p><!--[if !supportLists]-->7)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <!--[endif]-->Visual Thinking.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Choice A is one of the core competencies of the Analytical Thinking and Problem-Solving.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Choice B is another core competency of the Analytical Thinking and Problem-Solving.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Choice C is another core competency of the Analytical Thinking and Problem-Solving.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Choice D is correct, since choices A, B and C are all the core competencies of the Analytical Thinking and Problem-Solving.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p><strong>Reference</strong>: Page 188 of BABOK&reg; Guide for more information.</p>\r\n\r\n<p>Hence choice D is correct.</p>",
+        "is_active": true,
+        "answer_list": [
+            {
+                "question_answer_id": 28857,
+                "question_id": 38759,
+                "answers": [
+                    {
+                        "choice": "<p>Creative Thinking</p>",
+                        "correct": false,
+                        "feedback": ""
+                    },
+                    {
+                        "choice": "<p>Learning</p>",
+                        "correct": false,
+                        "feedback": ""
+                    },
+                    {
+                        "choice": "<p>Systems Thinking</p>",
+                        "correct": false,
+                        "feedback": ""
+                    },
+                    {
+                        "choice": "<p>All of the above</p>",
+                        "correct": true,
+                        "feedback": ""
+                    }
+                ]
+            }
+        ],
+        "topic_name": "Other"
+    },
+    {
+        "question_id": 38760,
+        "topic_id": 0,
+        "course_id": 234,
+        "case_study_id": null,
+        "lab_id": null,
+        "question_text": "<p>When accessing changes, business analysts consider if each proposed change _______</p>",
+        "mark": 1,
+        "is_partially_correct": false,
+        "question_type": "1",
+        "difficulty_level": "0",
+        "general_feedback": "<p>Choice C is the correct answer.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>When assessing changes, business analysts consider if each proposed change:</p>\r\n\r\n<p><!--[if !supportLists]-->1)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <!--[endif]-->Aligns with the overall strategy</p>\r\n\r\n<p><!--[if !supportLists]-->2)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <!--[endif]-->Affects value delivered to the business or stakeholder groups</p>\r\n\r\n<p><!--[if !supportLists]-->3)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <!--[endif]-->Impacts the time to deliver or the resources required to deliver the value</p>\r\n\r\n<p><!--[if !supportLists]-->4)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <!--[endif]-->Alters any risks, opportunities, or constraints associated with the overall initiative.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Choice A is one of the valid statement business analysts consider during accessing changes.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Choice B is another valid statement business analyst consider during accessing changes.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Choice C is correct, since both choices A and B are the valid statement business analysts consider during accessing changes.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Choice D is not correct, since choice C is correct.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p><strong>Reference</strong>: Page 91 of BABOK&reg; Guide for more information.</p>\r\n\r\n<p>Hence choice C is correct.</p>",
+        "is_active": true,
+        "answer_list": [
+            {
+                "question_answer_id": 28858,
+                "question_id": 38760,
+                "answers": [
+                    {
+                        "choice": "<p>Aligns with the overall strategy</p>",
+                        "correct": false,
+                        "feedback": ""
+                    },
+                    {
+                        "choice": "<p>Affects value delivered to the business or stakeholder groups</p>",
+                        "correct": false,
+                        "feedback": ""
+                    },
+                    {
+                        "choice": "<p>Both A and B</p>",
+                        "correct": true,
+                        "feedback": ""
+                    },
+                    {
+                        "choice": "<p>None of the above</p>",
+                        "correct": false,
+                        "feedback": ""
+                    }
+                ]
+            }
+        ],
+        "topic_name": "Other"
+    },
+    {
+        "question_id": 38761,
+        "topic_id": 0,
+        "course_id": 234,
+        "case_study_id": null,
+        "lab_id": null,
+        "question_text": "<p>The core competencies related to Behavioural Characteristics include</p>",
+        "mark": 1,
+        "is_partially_correct": false,
+        "question_type": "1",
+        "difficulty_level": "0",
+        "general_feedback": "<p>Choice D is the correct answer.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Behavioural Characteristics core competencies include:</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p><!--[if !supportLists]-->1)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <!--[endif]-->Ethics</p>\r\n\r\n<p><!--[if !supportLists]-->2)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <!--[endif]-->Personal Accountability</p>\r\n\r\n<p><!--[if !supportLists]-->3)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <!--[endif]-->Trustworthiness</p>\r\n\r\n<p><!--[if !supportLists]-->4)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <!--[endif]-->Organization and Time Management</p>\r\n\r\n<p><!--[if !supportLists]--><strong>5)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </strong><!--[endif]-->Adaptability</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Choice A is one of the core competencies related to Behavioural Characteristics.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Choice B is another core competency related to Behavioural Characteristics.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Choice C is another core competency related to Behavioural Characteristics.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Choice D is correct, since all the choices A, B and C are the core competencies related to Behavioural Characteristics.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p><strong>Reference</strong>: Page 194 of BABOK&reg; Guide for more information.</p>\r\n\r\n<p>Hence choice D is correct.</p>",
+        "is_active": true,
+        "answer_list": [
+            {
+                "question_answer_id": 28859,
+                "question_id": 38761,
+                "answers": [
+                    {
+                        "choice": "<p>Ethics</p>",
+                        "correct": false,
+                        "feedback": ""
+                    },
+                    {
+                        "choice": "<p>Personal Accountability</p>",
+                        "correct": false,
+                        "feedback": ""
+                    },
+                    {
+                        "choice": "<p>Adaptability</p>",
+                        "correct": false,
+                        "feedback": ""
+                    },
+                    {
+                        "choice": "<p>All of the above</p>",
+                        "correct": true,
+                        "feedback": ""
+                    }
+                ]
+            }
+        ],
+        "topic_name": "Other"
+    },
+    {
+        "question_id": 38762,
+        "topic_id": 0,
+        "course_id": 234,
+        "case_study_id": null,
+        "lab_id": null,
+        "question_text": "<p>It is a high-level estimate, generally based on limited information, which may have a very wide confidence interval. Which of the following estimating method is valid with respect to the given statement?</p>",
+        "mark": 1,
+        "is_partially_correct": false,
+        "question_type": "1",
+        "difficulty_level": "0",
+        "general_feedback": "<p>Choice B is the correct answer.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Rough order of Magnitude is a high-level estimate, generally based on limited information, which may have a very wide confidence interval.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Choice A is not correct, since top-down estimation would examine the components at a high level in a hierarchical breakdown.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Choice B is correct, since Rough order of Magnitude is a high-level estimate, generally based on limited information, which may have a very wide confidence interval.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Choice C is not correct, since PERT is not associated with the given statement&nbsp;</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Choice D is not correct, since choice B is correct.&nbsp;&nbsp;</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p><strong>Reference</strong>: Page 272 of BABOK&reg; Guide for more information.</p>\r\n\r\n<p>Hence choice B is correct, whereas choices A, C and D are incorrect.</p>",
+        "is_active": true,
+        "answer_list": [
+            {
+                "question_answer_id": 28860,
+                "question_id": 38762,
+                "answers": [
+                    {
+                        "choice": "<p>Top-down</p>",
+                        "correct": false,
+                        "feedback": ""
+                    },
+                    {
+                        "choice": "<p>Rough Order of Magnitude</p>",
+                        "correct": true,
+                        "feedback": ""
+                    },
+                    {
+                        "choice": "<p>PERT</p>",
+                        "correct": false,
+                        "feedback": ""
+                    },
+                    {
+                        "choice": "<p>None of the above</p>",
+                        "correct": false,
+                        "feedback": ""
+                    }
+                ]
+            }
+        ],
+        "topic_name": "Other"
+    },
+    {
+        "question_id": 38763,
+        "topic_id": 0,
+        "course_id": 234,
+        "case_study_id": null,
+        "lab_id": null,
+        "question_text": "<p>It is a type of interview in which the interviewer has a predefined set of questions. Which of the following is valid with respect to the given statement?</p>",
+        "mark": 1,
+        "is_partially_correct": false,
+        "question_type": "1",
+        "difficulty_level": "0",
+        "general_feedback": "<p>Choice A is the correct answer.&nbsp; &nbsp;&nbsp;</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Structured Interview is the one in which the interviewer has a predefined set of questions.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Choice A is correct, since Structured Interview is the one in which the interviewer has a predefined set of questions.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Choice B is not correct, since unstructured Interview is the one in which the interviewer does not have a predetermined format or order of questions. Questions may vary based on interviewee responses and interactions.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Choice C is not correct, since virtual Interview is not the valid choice for the given statement.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Choice D is not correct, since choice A is correct.&nbsp;</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p><strong>Reference</strong>: Page 290 of BABOK&reg; Guide for more information.</p>\r\n\r\n<p>Hence choice A is correct, whereas choices B, C and D are incorrect.</p>",
+        "is_active": true,
+        "answer_list": [
+            {
+                "question_answer_id": 28861,
+                "question_id": 38763,
+                "answers": [
+                    {
+                        "choice": "<p>Structured Interview</p>",
+                        "correct": true,
+                        "feedback": ""
+                    },
+                    {
+                        "choice": "<p>Unstructured Interview</p>",
+                        "correct": false,
+                        "feedback": ""
+                    },
+                    {
+                        "choice": "<p>Virtual Interview</p>",
+                        "correct": false,
+                        "feedback": ""
+                    },
+                    {
+                        "choice": "<p>None of the above</p>",
+                        "correct": false,
+                        "feedback": ""
+                    }
+                ]
+            }
+        ],
+        "topic_name": "Other"
+    },
+    {
+        "question_id": 38768,
+        "topic_id": 138,
+        "course_id": 234,
+        "case_study_id": null,
+        "lab_id": null,
+        "question_text": "<p>It describes the capabilities that a solution must have in terms of the behaviour and information that the solution will manage. Which of the following is the valid choice with respect to the given statement?</p>",
+        "mark": 1,
+        "is_partially_correct": false,
+        "question_type": "1",
+        "difficulty_level": "0",
+        "general_feedback": "<p>Choice B is the correct answer.&nbsp;&nbsp;</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Functional requirements describe the capabilities that a solution must have in terms of the behaviour and information that the solution will manage.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Choice A is not correct, since business requirements describe statements of goals, objectives, and outcomes that describe why a change has been initiated.&nbsp;</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Choice B is correct, since Functional requirements describe the capabilities that a solution must have in terms of the behaviour and information that the solution will manage.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Choice C is not correct, since Stakeholder requirements describe the needs of stakeholders that must be met in order to achieve the business requirements.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Choice D is not correct, since choice B is correct.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p><strong>Reference</strong>: Page 16 of BABOK&reg; Guide for more information.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Hence choice B is correct, whereas choices A, C and D are incorrect.</p>",
+        "is_active": true,
+        "answer_list": [
+            {
+                "question_answer_id": 28866,
+                "question_id": 38768,
+                "answers": [
+                    {
+                        "choice": "<p>Business requirements</p>",
+                        "correct": false,
+                        "feedback": ""
+                    },
+                    {
+                        "choice": "<p>Functional requirements</p>",
+                        "correct": true,
+                        "feedback": ""
+                    },
+                    {
+                        "choice": "<p>Stakeholder requirements</p>",
+                        "correct": false,
+                        "feedback": ""
+                    },
+                    {
+                        "choice": "<p>None of the above</p>",
+                        "correct": false,
+                        "feedback": ""
+                    }
+                ]
+            }
+        ],
+        "topic_name": "Business Analysis Knowledge"
+    },
+    {
+        "question_id": 38769,
+        "topic_id": 138,
+        "course_id": 234,
+        "case_study_id": null,
+        "lab_id": null,
+        "question_text": "<p>Who is responsible for initiating the effort to define a business need and develop a solution that meets that need?&nbsp;&nbsp;</p>",
+        "mark": 1,
+        "is_partially_correct": false,
+        "question_type": "1",
+        "difficulty_level": "0",
+        "general_feedback": "<p>Choice A is the correct answer.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Sponsors are responsible for initiating the effort to define a business need and develop a solution that meets that need.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Choice A is correct, since Sponsors are responsible for initiating the effort to define a business need and develop a solution that meets that need.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Choice B is not correct, since Regulators are responsible for the definition and enforcement of standards.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Choice C is not correct, since Project managers are responsible for managing the work required to deliver a solution that meets a business need, and for ensuring that the project&#39;s objectives are met while balancing the project factors including scope, budget, schedule, resources, quality, and risk.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Choice D is not correct, since choice A is correct.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p><strong>Reference</strong>: Page 18 of BABOK&reg; Guide for more information.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Hence choice A is correct, whereas choices B, C and D are incorrect.</p>",
+        "is_active": true,
+        "answer_list": [
+            {
+                "question_answer_id": 28867,
+                "question_id": 38769,
+                "answers": [
+                    {
+                        "choice": "<p>Sponsor</p>",
+                        "correct": true,
+                        "feedback": ""
+                    },
+                    {
+                        "choice": "<p>Regulator</p>",
+                        "correct": false,
+                        "feedback": ""
+                    },
+                    {
+                        "choice": "<p>Project Manager</p>",
+                        "correct": false,
+                        "feedback": ""
+                    },
+                    {
+                        "choice": "<p>None of the above</p>",
+                        "correct": false,
+                        "feedback": ""
+                    }
+                ]
+            }
+        ],
+        "topic_name": "Business Analysis Knowledge"
+    },
+    {
+        "question_id": 38780,
+        "topic_id": 140,
+        "course_id": 234,
+        "case_study_id": null,
+        "lab_id": null,
+        "question_text": "<p>Which of the following are the input for &lsquo;prepare for elicitation&rsquo; tasks?</p>",
+        "mark": 1,
+        "is_partially_correct": false,
+        "question_type": "1",
+        "difficulty_level": "0",
+        "general_feedback": "<p>Answer D</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>The input for &lsquo;prepare for elicitation&rsquo; tasks are</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p><!--[if !supportLists]-->1)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <!--[endif]-->Needs</p>\r\n\r\n<p><!--[if !supportLists]-->2)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <!--[endif]-->Stakeholder Engagement Approach</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Choice A is one of the valid input for &lsquo;prepare for elicitation&rsquo; tasks.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Choice B is another valid input for &lsquo;prepare for elicitation&rsquo; tasks.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Choice C is not correct, since Elicitation Activity Plan is the output for &lsquo;prepare for elicitation&rsquo; tasks.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Choice D is correct, since both choices A and B are the valid input for &lsquo;prepare for elicitation&rsquo; tasks.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p><strong>Reference</strong>: Page 57 of BABOK&reg; Guide for more information.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Hence choice D is correct.</p>",
+        "is_active": true,
+        "answer_list": [
+            {
+                "question_answer_id": 28878,
+                "question_id": 38780,
+                "answers": [
+                    {
+                        "choice": "<p>Needs</p>",
+                        "correct": false,
+                        "feedback": ""
+                    },
+                    {
+                        "choice": "<p>Stakeholder Engagement Approach</p>",
+                        "correct": false,
+                        "feedback": ""
+                    },
+                    {
+                        "choice": "<p>Elicitation Activity Plan</p>",
+                        "correct": false,
+                        "feedback": ""
+                    },
+                    {
+                        "choice": "<p>Both A and B</p>",
+                        "correct": true,
+                        "feedback": ""
+                    }
+                ]
+            }
+        ],
+        "topic_name": "Elicitation and Collaboration"
+    },
+    {
+        "question_id": 38787,
+        "topic_id": 140,
+        "course_id": 234,
+        "case_study_id": null,
+        "lab_id": null,
+        "question_text": "<p>It is used to generate many ideas from a group of stakeholders in a short period and to organize and prioritize those ideas. Which of the following technique is valid with respect to the same?</p>",
+        "mark": 1,
+        "is_partially_correct": false,
+        "question_type": "1",
+        "difficulty_level": "0",
+        "general_feedback": "<p>Choice A is the correct answer.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Mind Mapping is used to generate many ideas from a group of stakeholders in a short period and to organize and prioritize those ideas.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Choice A is correct, since Mind Mapping is used to generate many ideas from a group of stakeholders in a short period and to organize and prioritize those ideas.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Choice B is not correct, since observation is used to gain insight about how work is currently done, possibly in different locations and in different circumstances.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Choice C is not correct, since Process Analysis is used to understand current processes and to identify opportunities for improvement in those processes.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Choice D is not correct, since choice A is correct.&nbsp;&nbsp; &nbsp;&nbsp;</p>\r\n\r\n<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>\r\n\r\n<p><strong>Reference</strong>: Page 64 of BABOK&reg; Guide for more information.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Hence choice A is correct, whereas choices B, C and D are incorrect.<strong> </strong></p>",
+        "is_active": true,
+        "answer_list": [
+            {
+                "question_answer_id": 28885,
+                "question_id": 38787,
+                "answers": [
+                    {
+                        "choice": "<p>Mind Mapping</p>",
+                        "correct": true,
+                        "feedback": ""
+                    },
+                    {
+                        "choice": "<p>Observation</p>",
+                        "correct": false,
+                        "feedback": ""
+                    },
+                    {
+                        "choice": "<p>Process Analysis</p>",
+                        "correct": false,
+                        "feedback": ""
+                    },
+                    {
+                        "choice": "<p>None of the above</p>",
+                        "correct": false,
+                        "feedback": ""
+                    }
+                ]
+            }
+        ],
+        "topic_name": "Elicitation and Collaboration"
+    },
+    {
+        "question_id": 38792,
+        "topic_id": 141,
+        "course_id": 234,
+        "case_study_id": null,
+        "lab_id": null,
+        "question_text": "<p>Which of the following are not the valid input to trace requirements tasks?</p>",
+        "mark": 1,
+        "is_partially_correct": false,
+        "question_type": "1",
+        "difficulty_level": "0",
+        "general_feedback": "<p>Choice C is the correct answer.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>The valid input to trace requirements tasks are :</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p><!--[if !supportLists]-->1)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <!--[endif]-->Requirements</p>\r\n\r\n<p><!--[if !supportLists]-->2)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <!--[endif]-->Designs</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Choice A is not correct, since it is one of the valid input to trace requirements tasks.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Choice B is not correct, since it is another valid input to trace requirements tasks.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Choice C is correct, since Legal or Regulatory Information is part of Guidelines and tools used in the trace requirements tasks.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Choice D is not correct, since choice C is correct.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p><strong>Reference</strong>: Page 81 of BABOK&reg; Guide for more information.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Hence choice C is correct, whereas choices A, B and D are incorrect.<strong> </strong></p>",
+        "is_active": true,
+        "answer_list": [
+            {
+                "question_answer_id": 28890,
+                "question_id": 38792,
+                "answers": [
+                    {
+                        "choice": "<p>Requirements</p>",
+                        "correct": false,
+                        "feedback": ""
+                    },
+                    {
+                        "choice": "<p>Designs</p>",
+                        "correct": false,
+                        "feedback": ""
+                    },
+                    {
+                        "choice": "<p>Legal or Regulatory Information</p>",
+                        "correct": true,
+                        "feedback": ""
+                    },
+                    {
+                        "choice": "<p>None of the above</p>",
+                        "correct": false,
+                        "feedback": ""
+                    }
+                ]
+            }
+        ],
+        "topic_name": "Requirements Life Cycle Management"
+    }
+]

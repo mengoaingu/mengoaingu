@@ -131,8 +131,10 @@ export const iconMap = {
     comment: h('span', { class: 'material-symbols-outlined' }, 'comment'),
     api: h('span', { class: 'material-symbols-outlined' }, 'api'),
     welcome: h('span', { class: 'material-symbols-outlined' }, 'settings_accessibility'),
-    threeDotVertical: h('span', { class: 'material-symbols-outlined'}, 'more_vert'),
+    threeDotVertical: h('span', { class: 'material-symbols-outlined' }, 'more_vert'),
     other: h('span', { class: 'material-symbols-outlined' }, 'fiber_new'),
+    prev: h('span', { class: 'material-symbols-outlined' }, 'arrow_back'),
+    next: h('span', { class: 'material-symbols-outlined' }, 'arrow_forward'),
 }
 
 export const emojiIcons = [
