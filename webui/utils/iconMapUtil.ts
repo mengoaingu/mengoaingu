@@ -135,6 +135,7 @@ export const iconMap = {
     other: h('span', { class: 'material-symbols-outlined' }, 'fiber_new'),
     prev: h('span', { class: 'material-symbols-outlined' }, 'arrow_back'),
     next: h('span', { class: 'material-symbols-outlined' }, 'arrow_forward'),
+    school: h('span', { class: 'material-symbols-outlined', style: { fontSize: '50px', color: '#1890ff' } }, 'school'),
 }
 
 export const emojiIcons = [

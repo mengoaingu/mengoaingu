@@ -12,7 +12,8 @@ export default defineNuxtConfig({
     ssr: false,
     srcDir: 'webui',
     devServer: {
-        port: 3333
+        port: 3333,
+        https: true,
     },
 
     plugins: [

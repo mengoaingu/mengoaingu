@@ -1,5 +1,7 @@
 <script setup lang="ts"></script>
 <template>
-    <img src="/download.png" />
-    <div>Logooooo</div>
+    <div class="flex items-center">
+        <component :is="iconMap.school" />
+        <a-typography-text>mengoaingu.com</a-typography-text>
+    </div>
 </template>
