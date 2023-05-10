@@ -1,3 +1,3 @@
 <template>
-    <div>Mengoaingu.com nice b</div>
+    <div>Mengoaingu.com</div>
 </template>

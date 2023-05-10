@@ -1,4 +1,5 @@
-import { FacebookAuthProvider, getAuth, getRedirectResult, signInWithPopup, GoogleAuthProvider, signOut as firebaseSignOut } from 'firebase/auth'
+import { message } from 'ant-design-vue'
+import { FacebookAuthProvider, getAuth, getRedirectResult, signInWithPopup, GoogleAuthProvider, signOut as firebaseSignOut, } from 'firebase/auth'
 
 export const useAuth = () => {
     const user = ref<any>()
@@ -8,6 +9,11 @@ export const useAuth = () => {
         signInWithPopup(auth, provider).then((result) => {
             user.value = result.user
             console.log(user.value)
+            message.success('Login success!')
+        }).catch((err) => {
+            if (err.code === FirebaseErrorCode.ACCOUNT_EXISTS) {
+                message.error(FIREBASE_ERROR_MESSAGE[FirebaseErrorCode.ACCOUNT_EXISTS])
+            }
         })
     }
 
@@ -15,7 +21,10 @@ export const useAuth = () => {
         const provider = new GoogleAuthProvider();
         signInWithPopup(auth, provider).then((result) => {
             user.value = result.user
-            console.log(user.value)
+            user.value.getIdToken().then((token: any) => {
+                console.log(user.value, token)
+                message.success('Login success!')
+            })
         })
     }
 

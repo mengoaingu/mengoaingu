@@ -2,6 +2,8 @@ name: Mengoaingu
 run-name: ${{ github.actor }} is deploying GitHub Actions 🚀
 on:
   push:
+    paths:
+      - webui/**
     branches:
       - main
 jobs:

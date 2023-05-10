@@ -1,0 +1,39 @@
+name: Mengoaingu-API
+run-name: ${{ github.actor }} is deploying API GitHub Actions 🚀
+on:
+  push:
+    paths:
+      - .github/**
+      - docker/**
+      - main.go
+      - cmd/**
+      - configs/**
+      - internal/**
+      - pkg/**
+      - proto/**
+      - third_party/**
+    branches:
+      - main
+jobs:
+  build:
+    runs-on: [local-runner]
+    steps:
+      - uses: actions/checkout@v3
+      - uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+      - run: docker --version
+      - run: docker build --no-cache -t playlistduong/mengoaingu:api -f docker/dockerfiles/web.Dockerfile .
+      - run: docker push playlistduong/mengoaingu:api
+
+  deploy:
+    runs-on: [prd-runner]
+    needs: [build]
+    steps:
+      - uses: actions/checkout@v3
+      - uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+      - run: docker stack deploy --with-registry-auth -c docker/services/api.yaml mengoaingu
