@@ -2,7 +2,7 @@ version: "3.7"
 
 services:
 
-  prod:
+  mysql:
     image: mysql:8.0
     hostname: mysql
     command: '--default-authentication-plugin=mysql_native_password'
@@ -15,14 +15,18 @@ services:
         condition: on-failure
     volumes:
       - ./conf.d:/etc/mysql/conf.d
-      - ./dbdata:/var/lib/mysql
+      - dbdata:/var/lib/mysql
     environment:
-      MYSQL_ROOT_PASSWORD: urrootpass
-      MYSQL_USER: user
-      MYSQL_PASSWORD: abc@123
-      MYSQL_DATABASE: mengoaingu
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
 
 networks:
   default:
     name: mengoaingu-nw
+    external: true
+
+volumes:
+  dbdata:
     external: true

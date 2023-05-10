@@ -63,3 +63,19 @@ swagger-ui:
 ## Build the binary for linux
 linux:
 	@GOOS=linux GOARCH=${GOARCH} CGO_ENABLED=0 go build ${LDFLAGS} -o ${BINARY} .
+
+
+
+db:
+	env $(cat .env | grep ^[A-Z] | xargs) docker stack deploy -c docker/docker-compose/mysql8/docker-compose.yaml db
+
+traefik-proxy:
+	env $(cat .env | grep ^[A-Z] | xargs) docker stack deploy -c docker/docker-compose/traefik/docker-compose.yaml mengoaingu
+
+github-runner:
+	env $(cat .env | grep ^[A-Z] | xargs) docker stack deploy -c docker/docker-compose/github-runner/docker-compose.yaml mengoaingu
+
+portainer:
+	env $(cat .env | grep ^[A-Z] | xargs) docker stack deploy -c docker/docker-compose/portainer/docker-compose.yaml mengoaingu
+
+init: db traefik-proxy

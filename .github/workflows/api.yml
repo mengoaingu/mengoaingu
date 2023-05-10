@@ -29,7 +29,7 @@ jobs:
       - run: |
           cat > config.toml <<EOF
           [server]
-          name = "simple_app_server"
+          name = "api_server"
           version = "1.0.0"
           host = "0.0.0.0"
           port_grpc = 9090
@@ -38,10 +38,10 @@ jobs:
           logger_level = "info"
 
           [tasks.mysql]
-          dsn = "root:urrootpass@tcp(mysql:3306)/mengoaingu?charset=utf8mb4&parseTime=True&loc=Local&multiStatements=true"
+          dsn = "${ secrets.MYSQL_DSN }"
 
           [profile.mysql]
-          dsn = "root:urrootpass@tcp(mysql:3306)/mengoaingu?charset=utf8mb4&parseTime=True&loc=Local&multiStatements=true"
+          dsn = "${ secrets.MYSQL_DSN }"
           EOF
       - run: docker build --no-cache -t playlistduong/mengoaingu:api -f docker/dockerfiles/api.Dockerfile .
       - run: docker push playlistduong/mengoaingu:api
