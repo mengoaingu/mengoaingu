@@ -21,3 +21,8 @@ services:
       MYSQL_USER: user
       MYSQL_PASSWORD: abc@123
       MYSQL_DATABASE: mengoaingu
+
+networks:
+  default:
+    name: mengoaingu-nw
+    external: true

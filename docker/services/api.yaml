@@ -5,7 +5,7 @@ services:
     image: playlistduong/mengoaingu:api
     labels:
       - "traefik.enable=true"
-      - "traefik.http.services.api.loadbalancer.server.port=4444"
+      - "traefik.http.services.api.loadbalancer.server.port=8080"
       - "traefik.http.routers.api.rule=Host(`api.mengoaingu.com`)"
       - "traefik.http.routers.api.entrypoints=websecure"
       - "traefik.http.routers.api.tls.certresolver=myresolver"
@@ -15,3 +15,8 @@ services:
     #     limits:
     #       cpus: '2'
     #       memory: 4G
+
+networks:
+  default:
+    name: mengoaingu-nw
+    external: true

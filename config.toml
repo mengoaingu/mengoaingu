@@ -1,14 +1,14 @@
 [server]
 name = "simple_app_server"
 version = "1.0.0"
-host = "localhost"
+host = "0.0.0.0"
 port_grpc = 9090
 port_rest_external = 8080
 port_rest_internal = 8081
 logger_level = "info"
 
 [tasks.mysql]
-dsn = "root:urrootpass@tcp(mysql:3306)/tasks?charset=utf8mb4&parseTime=True&loc=Local&multiStatements=true"
+dsn = "root:urrootpass@tcp(mysql:3306)/mengoaingu?charset=utf8mb4&parseTime=True&loc=Local&multiStatements=true"
 
 [profile.mysql]
-dsn = "root:urrootpass@tcp(mysql:3306)/profile?charset=utf8mb4&parseTime=True&loc=Local&multiStatements=true"
+dsn = "root:urrootpass@tcp(mysql:3306)/mengoaingu?charset=utf8mb4&parseTime=True&loc=Local&multiStatements=true"

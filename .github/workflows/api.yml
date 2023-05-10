@@ -12,6 +12,7 @@ on:
       - pkg/**
       - proto/**
       - third_party/**
+      - config.toml
     branches:
       - main
 jobs:
@@ -24,6 +25,24 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       - run: docker --version
+      - run: rm -rf config.toml
+      - run: |
+          cat > config.toml <<EOF
+          [server]
+          name = "simple_app_server"
+          version = "1.0.0"
+          host = "0.0.0.0"
+          port_grpc = 9090
+          port_rest_external = 8080
+          port_rest_internal = 8081
+          logger_level = "info"
+
+          [tasks.mysql]
+          dsn = "root:urrootpass@tcp(mysql:3306)/mengoaingu?charset=utf8mb4&parseTime=True&loc=Local&multiStatements=true"
+
+          [profile.mysql]
+          dsn = "root:urrootpass@tcp(mysql:3306)/mengoaingu?charset=utf8mb4&parseTime=True&loc=Local&multiStatements=true"
+          EOF
       - run: docker build --no-cache -t playlistduong/mengoaingu:api -f docker/dockerfiles/api.Dockerfile .
       - run: docker push playlistduong/mengoaingu:api
 

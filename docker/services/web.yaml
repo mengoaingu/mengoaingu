@@ -15,3 +15,7 @@ services:
     #     limits:
     #       cpus: '2'
     #       memory: 4G
+networks:
+  default:
+    name: mengoaingu-nw
+    external: true

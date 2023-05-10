@@ -14,4 +14,4 @@ COPY --from=build /app/backend backend
 COPY --from=build /app/config.toml config.toml
 RUN chmod +x /app/backend
 
-CMD ["/app/backend" ]
+CMD ["/app/backend", "server" ]
