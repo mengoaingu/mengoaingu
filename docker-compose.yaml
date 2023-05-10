@@ -35,33 +35,88 @@ services:
       - ./docker-compose/traefik/certs:/etc/certs:ro
       - ./docker-compose/traefik/providers/dynamic_conf.yaml:/etc/traefik/dynamic_conf.yaml:ro
       - ./docker-compose/traefik/traefik.yaml:/etc/traefik/traefik.yaml:ro
-  web:
-    image: playlistduong/mengoaingu:web
-    labels:
-      - "traefik.enable=true"
-      - traefik.http.services.service.loadbalancer.server.port=3000 
-      - "traefik.http.routers.app.rule=Host(`app.localhost`)"
-      - "traefik.http.routers.app.entrypoints=websecure"
-      - "traefik.http.routers.app.tls=true"
-    restart: always
-  runner:
-    image: myoung34/github-runner:latest
-    restart: always
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
+  # web:
+  #   image: playlistduong/mengoaingu:web
+  #   labels:
+  #     - "traefik.enable=true"
+  #     - traefik.http.services.service.loadbalancer.server.port=3000 
+  #     - "traefik.http.routers.app.rule=Host(`app.localhost`)"
+  #     - "traefik.http.routers.app.entrypoints=websecure"
+  #     - "traefik.http.routers.app.tls=true"
+  #   restart: always
+  # runner:
+  #   image: myoung34/github-runner:latest
+  #   restart: always
+  #   volumes:
+  #     - /var/run/docker.sock:/var/run/docker.sock
+  #   environment:
+  #     RUNNER_SCOPE: repo
+  #     RUNNER_NAME_PREFIX: myrunner
+  #     LABELS: local-runner
+  #     REPO_URL: https://github.com/mengoaingu/mengoaingu
+  #     EPHEMERAL: 1
+  #     ACCESS_TOKEN: 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
+  #   deploy:
+  #     replicas: 1
+  #     resources:
+  #       limits:
+  #         cpus: '2'
+  #         memory: 4G
+  #       reservations:
+  #         cpus: '0.2'
+  #         memory: 256M
+  mysqld:
+    healthcheck:
+      test: [ "CMD", "mysqladmin", "ping", "-h", "localhost", "-p123456" ]
+      interval: 1s
+      timeout: 5s
+      retries: 10
+      start_period: 10s
+    image: mysql:8.0
+    platform: linux/amd64
+    logging:
+      options:
+        max-size: 10m
+    ports:
+      - "3306:3306"
     environment:
-      RUNNER_SCOPE: repo
-      RUNNER_NAME_PREFIX: myrunner
-      LABELS: local-runner
-      REPO_URL: https://github.com/mengoaingu/mengoaingu
-      EPHEMERAL: 1
-      ACCESS_TOKEN: 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
-    deploy:
-      replicas: 1
-      resources:
-        limits:
-          cpus: '2'
-          memory: 4G
-        reservations:
-          cpus: '0.2'
-          memory: 256M
+      - MYSQL_ROOT_PASSWORD=123456
+    volumes:
+      # Avoid writable bind mount
+      - "./.bin/data/mysql:/var/lib/mysql"
+      - "./.bin/assets/mysql:/docker-entrypoint-initdb.d"
+    restart: always
+
+  # Kafka
+  zookeeper:
+    image: confluentinc/cp-zookeeper:7.0.1
+    hostname: zookeeper
+    ports:
+      - "2181:2181"
+    environment:
+      ZOOKEEPER_CLIENT_PORT: 2181
+      ZOOKEEPER_TICK_TIME: 2000
+
+  broker:
+    image: confluentinc/cp-kafka:7.0.1
+    hostname: broker
+    depends_on:
+      - zookeeper
+    ports:
+      - "29092:29092"
+      - "9092:9092"
+      - "9101:9101"
+    environment:
+      KAFKA_BROKER_ID: 1
+      KAFKA_ZOOKEEPER_CONNECT: 'zookeeper:2181'
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://broker:29092,PLAINTEXT_HOST://localhost:9092
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+      KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: 1
+      KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 1
+      KAFKA_GROUP_INITIAL_REBALANCE_DELAY_MS: 0
+      KAFKA_JMX_PORT: 9101
+      KAFKA_JMX_HOSTNAME: localhost
+      
+networks:
+  mengoaingu-network:

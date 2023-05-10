@@ -15,13 +15,13 @@ type GetProfileRequest struct {
 }
 
 type GetProfileResponse struct {
-	Profile *domain.Profile
+	Profile *domain.User
 }
 
 type CreateProfileRequest struct {
-	Profile *domain.Profile
+	Profile *domain.User
 }
 
 type CreateProfileResponse struct {
-	Profile *domain.Profile
+	Profile *domain.User
 }

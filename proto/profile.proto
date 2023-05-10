@@ -11,6 +11,19 @@ service ProfileService {
   rpc Authorize(AuthorizeRequest) returns (AuthorizeResponse) {
     option (google.api.http) = {
       post: "/v1/passport/auth"
+      body: "*"
+    };
+    option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
+      summary: "Auth firebase token"
+      description: "Auth firebase token on the server."
+      tags: "Profile"
+    };
+  }
+
+  rpc GetProfile(GetProfileRequest) returns (GetProfileResponse) {
+    option (google.api.http) = {
+      post: "/v1/get-profile"
+      body: "*"
     };
     option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
       summary: "Get Profile"
@@ -18,17 +31,6 @@ service ProfileService {
       tags: "Profile"
     };
   }
-
-  // rpc Login(LoginRequest) returns (LoginResponse) {
-  //   option (google.api.http) = {
-  //     get: "/v1/api/items-by-types/{item_types}"
-  //   };
-  //   option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
-  //     summary: "List items by type"
-  //     description: "List items by type on the server."
-  //     tags: "ItemTypes"
-  //   };
-  // }
 }
 
 message AuthorizeRequest {
@@ -37,20 +39,26 @@ message AuthorizeRequest {
 message AuthorizeResponse {
   Data data = 1;
   message Data {
-    Profile profile = 1;
+    string token = 1;
   }
 }
 
-// message LoginRequest{
-//   string item_types = 1;
-// }
-// message LoginResponse{
-//   repeated ItemDto items = 1;
-// }
+message GetProfileRequest {}
 
-message Profile {
-  string user_id = 1;
-  string display_name = 2;
-  string email = 5;
+message GetProfileResponse {
+  Data data = 1;
+  message Data {
+    User profile = 1;
+  }
 }
+
+message User {
+  int64 id = 1;
+  string uid = 2;
+  string display_name = 3;
+  string email = 4;
+  string avatar = 5;
+  string provider = 6;
+}
+
 

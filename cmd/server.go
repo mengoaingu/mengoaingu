@@ -5,8 +5,8 @@ Copyright © 2023 NAME HERE trongdt.working@gmail.com
 package cmd
 
 import (
+	"backend/pkg"
 	"backend/pkg/bindings"
-	"backend/pkg/bindings/tasks"
 	"backend/pkg/config"
 	"backend/pkg/firebase"
 	"backend/pkg/middleware"
@@ -57,13 +57,14 @@ to quickly create a Cobra application.`,
 			fx.Invoke(initConfig),
 			fx.Provide(middleware.NewAuthClient),
 			fx.Provide(firebase.SetupFirebase),
-			fx.Provide(bindings.New),
+			fx.Provide(firebase.SetupJWT),
+			fx.Provide(pkg.New),
 			fx.Provide(config.NewConfig),
-			fx.Options(tasks.Module),
+			bindings.ServicesOptions,
 			fx.Provide(http.NewServeMux),
 			fx.Invoke(
 				startServer,
-				invokeMessaging,
+				// invokeMessaging,
 			),
 		)
 		app.Run()
@@ -101,12 +102,12 @@ func initConfig() {
 	}
 }
 
-func startServer(ctx context.Context, cfg *config.Config, app *bindings.App) {
+func startServer(ctx context.Context, cfg *config.Config, app *pkg.App) {
 	go startServerHTTP(ctx, cfg, app)
 	go startServerGRPC(cfg, app)
 }
 
-func startServerGRPC(cfg *config.Config, handler *bindings.App) {
+func startServerGRPC(cfg *config.Config, handler *pkg.App) {
 	address := fmt.Sprintf("%s:%d", cfg.Server.HOST, cfg.Server.GRPC_PORT)
 	network := "tcp"
 	l, err := net.Listen(network, address)
@@ -129,8 +130,9 @@ func startServerGRPC(cfg *config.Config, handler *bindings.App) {
 	}
 }
 
-func startServerHTTP(ctx context.Context, cfg *config.Config, handler *bindings.App) {
-	// gen.RegisterProfileServiceHandlerFromEndpoint(ctx, mux, "localhost:9090", []grpc.DialOption{grpc.WithInsecure()})
+func startServerHTTP(ctx context.Context, cfg *config.Config, handler *pkg.App) {
+	gen.RegisterProfileServiceHandlerFromEndpoint(ctx, handler.Mux, "localhost:9090", []grpc.DialOption{grpc.WithInsecure()})
+	gen.RegisterQuizzesServiceHandlerFromEndpoint(ctx, handler.Mux, "localhost:9090", []grpc.DialOption{grpc.WithInsecure()})
 	gen.RegisterTaskServiceHandlerFromEndpoint(ctx, handler.Mux, "localhost:9090", []grpc.DialOption{grpc.WithInsecure()})
 	s := &http.Server{
 		Addr:    fmt.Sprintf("%s:%d", cfg.Server.HOST, cfg.Server.EXTERNAL_HTTP_PORT),

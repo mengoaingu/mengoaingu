@@ -14,15 +14,16 @@ var (
 type Payload struct {
 	ID        string    `json:"id"`
 	Username  string    `json:"username"`
+	Email     string    `json:"email"`
 	IssuedAt  time.Time `json:"issued_at"`
 	ExpiredAt time.Time `json:"expire_at"`
 }
 
-func NewPayload(userId string, username string, duration time.Duration) (*Payload, error) {
-
+func NewPayload(userId string, username string, email string, duration time.Duration) (*Payload, error) {
 	payload := &Payload{
 		ID:        userId,
 		Username:  username,
+		Email:     email,
 		IssuedAt:  time.Now(),
 		ExpiredAt: time.Now().Add(duration),
 	}

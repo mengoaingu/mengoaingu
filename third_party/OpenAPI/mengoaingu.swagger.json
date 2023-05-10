@@ -1,0 +1,792 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "profile.proto",
+    "version": "version not set"
+  },
+  "tags": [
+    {
+      "name": "ProfileService"
+    },
+    {
+      "name": "QuizzesService"
+    },
+    {
+      "name": "TaskService"
+    }
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/v1/get-profile": {
+      "post": {
+        "summary": "Get Profile",
+        "description": "Get Profile on the server.",
+        "operationId": "ProfileService_GetProfile",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/profileGetProfileResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/profileGetProfileRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Profile"
+        ]
+      }
+    },
+    "/v1/passport/auth": {
+      "post": {
+        "summary": "Auth firebase token",
+        "description": "Auth firebase token on the server.",
+        "operationId": "ProfileService_Authorize",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/profileAuthorizeResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/profileAuthorizeRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Profile"
+        ]
+      }
+    },
+    "/v1/quizzes/{topicId}": {
+      "get": {
+        "summary": "List exam",
+        "description": "List exam on the server.",
+        "operationId": "QuizzesService_GetListQuizzes",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/taskGetListQuizzesResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "topicId",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "int64"
+          }
+        ],
+        "tags": [
+          "Exam"
+        ]
+      }
+    },
+    "/v1/start-quiz/{quizId}": {
+      "post": {
+        "summary": "Get exam",
+        "description": "Get exam on the server.",
+        "operationId": "QuizzesService_StartQuiz",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/taskStartQuizResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "quizId",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object"
+            }
+          }
+        ],
+        "tags": [
+          "Exam"
+        ]
+      }
+    },
+    "/v1/submit-quiz/{quizReportId}": {
+      "post": {
+        "summary": "Get exam",
+        "description": "Get exam on the server.",
+        "operationId": "QuizzesService_SubmitQuiz",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/taskSubmitQuizResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "quizReportId",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "answers": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ],
+        "tags": [
+          "Exam"
+        ]
+      }
+    },
+    "/v1/tasks": {
+      "get": {
+        "summary": "List task",
+        "description": "List task on the server.",
+        "operationId": "TaskService_GetListTask",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/taskGetListTaskResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "date",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "name",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Task"
+        ]
+      },
+      "post": {
+        "summary": "Create task",
+        "description": "Create task on the server.",
+        "operationId": "TaskService_CreateTask",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/taskCreateTaskResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/taskCreateTaskRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Task"
+        ]
+      }
+    },
+    "/v1/tasks/{taskId}": {
+      "get": {
+        "summary": "Get task",
+        "description": "Get task on the server.",
+        "operationId": "TaskService_GetTask",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/taskGetTaskResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "taskId",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "int64"
+          }
+        ],
+        "tags": [
+          "Task"
+        ]
+      },
+      "delete": {
+        "summary": "Delete task",
+        "description": "Delete task on the server.",
+        "operationId": "TaskService_DeleteTask",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/taskDeleteTaskResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "taskId",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "int64"
+          }
+        ],
+        "tags": [
+          "Task"
+        ]
+      },
+      "put": {
+        "summary": "Update task",
+        "description": "Update task on the server.",
+        "operationId": "TaskService_UpdateTask",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/taskUpdateTaskResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "taskId",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "task": {
+                  "$ref": "#/definitions/taskTask"
+                }
+              }
+            }
+          }
+        ],
+        "tags": [
+          "Task"
+        ]
+      }
+    },
+    "/v1/topics": {
+      "get": {
+        "summary": "List exam",
+        "description": "List exam on the server.",
+        "operationId": "QuizzesService_GetListTopics",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/taskGetListTopicsResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "Exam"
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "profileAuthorizeRequest": {
+      "type": "object",
+      "properties": {
+        "idToken": {
+          "type": "string"
+        }
+      }
+    },
+    "profileAuthorizeResponse": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/profileAuthorizeResponseData"
+        }
+      }
+    },
+    "profileAuthorizeResponseData": {
+      "type": "object",
+      "properties": {
+        "token": {
+          "type": "string"
+        }
+      }
+    },
+    "profileGetProfileRequest": {
+      "type": "object"
+    },
+    "profileGetProfileResponse": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/profileGetProfileResponseData"
+        }
+      }
+    },
+    "profileGetProfileResponseData": {
+      "type": "object",
+      "properties": {
+        "profile": {
+          "$ref": "#/definitions/profileUser"
+        }
+      }
+    },
+    "profileUser": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "uid": {
+          "type": "string"
+        },
+        "displayName": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "avatar": {
+          "type": "string"
+        },
+        "provider": {
+          "type": "string"
+        }
+      }
+    },
+    "protobufAny": {
+      "type": "object",
+      "properties": {
+        "@type": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": {}
+    },
+    "rpcStatus": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "details": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/protobufAny"
+          }
+        }
+      }
+    },
+    "taskCreateTaskRequest": {
+      "type": "object",
+      "properties": {
+        "task": {
+          "$ref": "#/definitions/taskTask"
+        }
+      }
+    },
+    "taskCreateTaskResponse": {
+      "type": "object"
+    },
+    "taskDeleteTaskResponse": {
+      "type": "object"
+    },
+    "taskGetListQuizzesResponse": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/taskGetListQuizzesResponseData"
+        }
+      }
+    },
+    "taskGetListQuizzesResponseData": {
+      "type": "object",
+      "properties": {
+        "quizzes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/taskQuiz"
+          }
+        },
+        "total": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "taskGetListTaskResponse": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/taskGetListTaskResponseData"
+        }
+      }
+    },
+    "taskGetListTaskResponseData": {
+      "type": "object",
+      "properties": {
+        "tasks": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/taskTask"
+          }
+        },
+        "total": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "taskGetListTopicsResponse": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/taskGetListTopicsResponseData"
+        }
+      }
+    },
+    "taskGetListTopicsResponseData": {
+      "type": "object",
+      "properties": {
+        "topics": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/taskTopic"
+          }
+        },
+        "total": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "taskGetTaskResponse": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/taskGetTaskResponseData"
+        }
+      }
+    },
+    "taskGetTaskResponseData": {
+      "type": "object",
+      "properties": {
+        "task": {
+          "$ref": "#/definitions/taskTask"
+        }
+      }
+    },
+    "taskPriority": {
+      "type": "string",
+      "enum": [
+        "PRIORIRY_INVALID",
+        "PRIORIRY_LOW",
+        "PRIORIRY_MEDIUM",
+        "PRIORIRY_HIGH"
+      ],
+      "default": "PRIORIRY_INVALID"
+    },
+    "taskQuiz": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "topicId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "isFree": {
+          "type": "boolean"
+        }
+      }
+    },
+    "taskQuizReport": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "userId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "topicId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "quizId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "percentage": {
+          "type": "string"
+        },
+        "duration": {
+          "type": "string",
+          "format": "int64"
+        },
+        "totalDuration": {
+          "type": "string",
+          "format": "int64"
+        },
+        "result": {
+          "type": "boolean"
+        },
+        "startTime": {
+          "type": "string",
+          "format": "int64"
+        },
+        "totalQuiz": {
+          "type": "string",
+          "format": "int64"
+        },
+        "state": {
+          "$ref": "#/definitions/taskState"
+        },
+        "answers": {
+          "type": "string"
+        }
+      }
+    },
+    "taskStartQuizResponse": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/taskStartQuizResponseData"
+        }
+      }
+    },
+    "taskStartQuizResponseData": {
+      "type": "object",
+      "properties": {
+        "quizReport": {
+          "$ref": "#/definitions/taskQuizReport"
+        },
+        "quizs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/taskQuiz"
+          }
+        }
+      }
+    },
+    "taskState": {
+      "type": "string",
+      "enum": [
+        "INVALID",
+        "DOING",
+        "DONE"
+      ],
+      "default": "INVALID"
+    },
+    "taskSubmitQuizResponse": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/taskSubmitQuizResponseData"
+        }
+      }
+    },
+    "taskSubmitQuizResponseData": {
+      "type": "object",
+      "properties": {
+        "quizReport": {
+          "$ref": "#/definitions/taskQuizReport"
+        }
+      }
+    },
+    "taskTask": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "userId": {
+          "type": "string"
+        },
+        "priority": {
+          "$ref": "#/definitions/taskPriority"
+        },
+        "status": {
+          "$ref": "#/definitions/taskTaskStatus"
+        }
+      }
+    },
+    "taskTaskStatus": {
+      "type": "string",
+      "enum": [
+        "TASK_STATUS_INVALID",
+        "TASK_STATUS_INPROGRESS",
+        "TASK_STATUS_COMPLETED",
+        "TASK_STATUS_CANCELLED"
+      ],
+      "default": "TASK_STATUS_INVALID"
+    },
+    "taskTopic": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "title": {
+          "type": "string"
+        },
+        "thumbnail": {
+          "type": "string"
+        }
+      }
+    },
+    "taskUpdateTaskResponse": {
+      "type": "object"
+    }
+  }
+}
