@@ -8,7 +8,7 @@ port_rest_internal = 8081
 logger_level = "info"
 
 [tasks.mysql]
-dsn = "root:123456@tcp(127.0.0.1:3306)/tasks?charset=utf8mb4&parseTime=True&loc=Local&multiStatements=true"
+dsn = "root:urrootpass@tcp(mysql:3306)/tasks?charset=utf8mb4&parseTime=True&loc=Local&multiStatements=true"
 
 [profile.mysql]
-dsn = "root:123456@tcp(127.0.0.1:3306)/profile?charset=utf8mb4&parseTime=True&loc=Local&multiStatements=true"
+dsn = "root:urrootpass@tcp(mysql:3306)/profile?charset=utf8mb4&parseTime=True&loc=Local&multiStatements=true"

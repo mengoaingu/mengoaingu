@@ -62,4 +62,4 @@ swagger-ui:
 
 ## Build the binary for linux
 linux:
-	@GOOS=linux GOARCH=${GOARCH} go build ${LDFLAGS} -o ${BINARY} .
+	@GOOS=linux GOARCH=${GOARCH} CGO_ENABLED=0 go build ${LDFLAGS} -o ${BINARY} .

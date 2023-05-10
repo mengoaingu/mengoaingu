@@ -2,14 +2,16 @@ FROM golang:1.20.4 as build
 
 WORKDIR /app
 
-COPY example example
+COPY . .
 
-RUN go build example/main.go
+RUN make linux
 
 FROM alpine:3.14 as prod
 
 WORKDIR /app
 
-COPY --from=build /app/main mengoaingu
+COPY --from=build /app/backend backend
+COPY --from=build /app/config.toml config.toml
+RUN chmod +x /app/backend
 
-CMD [ "mengoaingu" ]
+CMD ["/app/backend" ]

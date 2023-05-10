@@ -4,7 +4,7 @@ services:
 
   prod:
     image: mysql:8.0
-    hostname: mysql-8
+    hostname: mysql
     command: '--default-authentication-plugin=mysql_native_password'
     deploy:
       placement:
@@ -18,3 +18,6 @@ services:
       - ./dbdata:/var/lib/mysql
     environment:
       MYSQL_ROOT_PASSWORD: urrootpass
+      MYSQL_USER: user
+      MYSQL_PASSWORD: abc@123
+      MYSQL_DATABASE: mengoaingu

@@ -24,7 +24,7 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       - run: docker --version
-      - run: docker build --no-cache -t playlistduong/mengoaingu:api -f docker/dockerfiles/web.Dockerfile .
+      - run: docker build --no-cache -t playlistduong/mengoaingu:api -f docker/dockerfiles/api.Dockerfile .
       - run: docker push playlistduong/mengoaingu:api
 
   deploy:

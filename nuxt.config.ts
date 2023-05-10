@@ -9,7 +9,7 @@ export default defineNuxtConfig({
             ]
         }
     },
-    ssr: true,
+    ssr: false,
     srcDir: 'webui',
     devServer: {
         port: 3333,
