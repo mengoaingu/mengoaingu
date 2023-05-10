@@ -11,10 +11,8 @@
             "mode": "auto",
             "program": "${fileDirname}/..",
             "args": [
-                "server2",
+                "server",
             ]
         }
     ]
 }
-// "--config=${fileDirname}/config.toml",
-// "--config_dir=${fileDirname}/configs",

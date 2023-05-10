@@ -5,16 +5,12 @@ import (
 	"backend/internal/tasks/repository"
 	"backend/internal/tasks/usecase"
 	"backend/pkg/dbutils"
-	"backend/proto/gen"
-	"context"
 	"database/sql"
 	"errors"
 	"log"
 
-	gwruntime "github.com/grpc-ecosystem/grpc-gateway/v2/runtime"
 	"github.com/spf13/viper"
 	"go.uber.org/fx"
-	"google.golang.org/grpc"
 	gormoteltracing "gorm.io/plugin/opentelemetry/tracing"
 )
 
@@ -26,15 +22,8 @@ var (
 		fx.Invoke(grpcHandler.NewTaskGRPCServer),
 		fx.Provide(usecase.NewTaskUsecase),
 		fx.Provide(repository.NewTaskRepository),
-		// fx.Provide(GRPCHandler),
 	)
 )
-
-func GRPCHandler(ctx context.Context, mux *gwruntime.ServeMux) *gwruntime.ServeMux {
-	// gen.RegisterProfileServiceHandlerFromEndpoint(ctx, mux, "localhost:9090", []grpc.DialOption{grpc.WithInsecure()})
-	gen.RegisterTaskServiceHandlerFromEndpoint(ctx, mux, "localhost:9090", []grpc.DialOption{grpc.WithInsecure()})
-	return mux
-}
 
 func CreateMySQLDB() repository.TasksDB {
 	var dsn string

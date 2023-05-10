@@ -1,0 +1,76 @@
+syntax="proto3";
+
+package go.todoapp.proto.task;
+import "google/protobuf/wrappers.proto";
+import "google/protobuf/timestamp.proto";
+import "google/api/annotations.proto";
+import "protoc-gen-openapiv2/options/annotations.proto";
+
+option go_package = "backend/proto/gen";
+
+message Topic {
+    int64 id = 1;
+    string title = 2;
+    string thumbnail = 3;
+}
+
+message Quiz {
+    int64 id = 1;
+    int64 topic_id = 2;
+    string name = 3;
+    string description = 4;
+    google.protobuf.BoolValue is_free = 5; 
+}
+
+message Question {
+    int64 id = 1;
+    string question_text = 2;
+    string answers = 3;
+    string eplain = 4;
+    string explain = 5;
+    QuestionType question_type = 6;
+    string image = 7;
+    string audio = 8;
+}
+  
+enum Level {
+    LEVEL_INVALID = 0;
+    LEVEL_A1 = 1;
+    LEVEL_A2 = 2;
+    LEVEL_B1 = 3;
+    LEVEL_B2 = 4;
+    LEVEL_C1 = 5;
+    LEVEL_C2 = 6;
+}
+
+enum QuestionType {
+    QUESTION_TYPE_INVALID = 0;
+    QUESTION_TYPE_PART1 = 1;
+    QUESTION_TYPE_PART2 = 2;
+    QUESTION_TYPE_PART3 = 3;
+    QUESTION_TYPE_PART4 = 4;
+    QUESTION_TYPE_PART5 = 5;
+    QUESTION_TYPE_PART6 = 6;
+    QUESTION_TYPE_PART7 = 7;
+}
+
+message QuizReport {
+    int64 id = 1;
+    int64 user_id = 2;
+    int64 topic_id = 3;
+    int64 quiz_id = 4;
+    string percentage = 5;
+    int64 duration = 6;
+    int64 total_duration = 7;
+    google.protobuf.BoolValue result = 8; 
+    int64 start_time = 9;
+    int64 total_quiz = 10;
+    State state = 11;
+    string answers = 12; 
+}
+
+enum State {
+    INVALID = 0;
+    DOING = 1;
+    DONE = 2;
+}

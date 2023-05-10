@@ -1,0 +1,311 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "quizzes.proto",
+    "version": "version not set"
+  },
+  "tags": [
+    {
+      "name": "QuizzesService"
+    }
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/v1/exam": {
+      "get": {
+        "summary": "List exam",
+        "description": "List exam on the server.",
+        "operationId": "QuizzesService_GetListExam",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/taskGetListExamResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "Exam"
+        ]
+      },
+      "post": {
+        "summary": "Create exam",
+        "description": "Create exam on the server.",
+        "operationId": "QuizzesService_CreateExam",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/taskCreateExamResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/taskCreateExamRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Exam"
+        ]
+      }
+    },
+    "/v1/exam/{examId}": {
+      "get": {
+        "summary": "Get exam",
+        "description": "Get exam on the server.",
+        "operationId": "QuizzesService_GetExam",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/taskGetExamResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "examId",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "int64"
+          }
+        ],
+        "tags": [
+          "Exam"
+        ]
+      },
+      "delete": {
+        "summary": "Delete exam",
+        "description": "Delete exam on the server.",
+        "operationId": "QuizzesService_DeleteExam",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/taskDeleteExamResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "examId",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "int64"
+          }
+        ],
+        "tags": [
+          "Exam"
+        ]
+      },
+      "put": {
+        "summary": "Update exam",
+        "description": "Update exam on the server.",
+        "operationId": "QuizzesService_UpdateExam",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/taskUpdateExamResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "examId",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "exam": {
+                  "$ref": "#/definitions/taskExam"
+                }
+              }
+            }
+          }
+        ],
+        "tags": [
+          "Exam"
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "protobufAny": {
+      "type": "object",
+      "properties": {
+        "@type": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": {}
+    },
+    "rpcStatus": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "details": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/protobufAny"
+          }
+        }
+      }
+    },
+    "taskCreateExamRequest": {
+      "type": "object",
+      "properties": {
+        "exam": {
+          "$ref": "#/definitions/taskExam"
+        }
+      }
+    },
+    "taskCreateExamResponse": {
+      "type": "object"
+    },
+    "taskDeleteExamResponse": {
+      "type": "object"
+    },
+    "taskExam": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "title": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "thumbnail": {
+          "type": "string"
+        },
+        "totalQuiz": {
+          "type": "string",
+          "format": "int64"
+        },
+        "totalTime": {
+          "type": "string",
+          "format": "int64"
+        },
+        "level": {
+          "$ref": "#/definitions/taskLevel"
+        }
+      }
+    },
+    "taskGetExamResponse": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/taskGetExamResponseData"
+        }
+      }
+    },
+    "taskGetExamResponseData": {
+      "type": "object",
+      "properties": {
+        "exam": {
+          "$ref": "#/definitions/taskExam"
+        }
+      }
+    },
+    "taskGetListExamResponse": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/taskGetListExamResponseData"
+        }
+      }
+    },
+    "taskGetListExamResponseData": {
+      "type": "object",
+      "properties": {
+        "exams": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/taskExam"
+          }
+        },
+        "total": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "taskLevel": {
+      "type": "string",
+      "enum": [
+        "LEVEL_INVALID",
+        "LEVEL_A1",
+        "LEVEL_A2",
+        "LEVEL_B1",
+        "LEVEL_B2",
+        "LEVEL_C1",
+        "LEVEL_C2"
+      ],
+      "default": "LEVEL_INVALID"
+    },
+    "taskUpdateExamResponse": {
+      "type": "object"
+    }
+  }
+}

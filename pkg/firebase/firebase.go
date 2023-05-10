@@ -1,7 +1,9 @@
 package firebase
 
 import (
+	"backend/pkg/token"
 	"context"
+	"log"
 
 	firebase "firebase.google.com/go"
 	"firebase.google.com/go/auth"
@@ -9,7 +11,7 @@ import (
 )
 
 func SetupFirebase() *auth.Client {
-	firebaseJson, err := simpleApp4f689FirebaseAdminsdk4esrk11f23bc586JsonBytes()
+	firebaseJson, err := mengoaingu_firebaseJsonBytes()
 	if err != nil {
 		panic("FirebaseAdminsdk load error")
 	}
@@ -25,4 +27,12 @@ func SetupFirebase() *auth.Client {
 		panic("Firebase load error")
 	}
 	return auth
+}
+
+func SetupJWT() token.Maker {
+	tokenMaker, err := token.NewJWTMaker("12345678901234567890123456789012")
+	if err != nil {
+		log.Fatal("Falied to setup JWT maker")
+	}
+	return tokenMaker
 }

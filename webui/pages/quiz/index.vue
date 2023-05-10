@@ -1,72 +1,67 @@
-<script setup lang="ts">
-const nuxtApp = useNuxtApp()
-let origin: string | undefined = ''
-if (process.server) {
-    origin = nuxtApp.ssrContext?.event.node.req.headers.origin
-} else {
-    origin = window.location.origin
-}
-const url = origin + '/mock_data/questions.json'
-const showAnswer = ref(false)
+<script setup>
+const radioStyle = reactive({
+    display: 'flex',
+    height: '40px',
+    lineHeight: '40px',
+});
 
-const currentNumberQuestion = ref(1)
+const answers = [
+    {
+        title: 'It can be used to understand the current state',
 
-const { data: questions } = await useFetch<any[]>(url)
+    },
+    {
+        title: 'It can be used to understand the current state',
 
-const quizTitle = computed(() => `Question ${currentNumberQuestion.value} of ${questions.value?.length}`)
-const question = computed(() => questions.value![currentNumberQuestion.value - 1])
-const answers = computed(() => question?.value?.answer_list && question?.value?.answer_list![0].answers)
-const disableBtnNext = computed(() => currentNumberQuestion.value === questions.value?.length)
-const disableBtnPrev = computed(() => currentNumberQuestion.value <= 1)
-const next = () => {
-    if (currentNumberQuestion.value < questions.value!.length) {
-        currentNumberQuestion.value++;
+    },
+    {
+        title: 'It can be used to understand the current state',
+
+    },
+    {
+        title: 'It can be used to understand the current state',
+
     }
-}
-
-const prev = () => {
-    if (currentNumberQuestion.value > 1) {
-        currentNumberQuestion.value--;
-    }
-}
-
+]
 </script>
 
 <template>
     <div class="flex flex-col items-center mt-5">
-        <a-card class="w-full max-w-screen-lg" :title="quizTitle">
+        <a-card class="w-full max-w-screen-lg" title="Question 1 of 20">
             <template #extra>
                 <a-button type="primary">Exit Quiz</a-button>
             </template>
-            <div class="mb-4">
-                <QuizQuestion :question="question.question_text" />
+            <a-typography-title :level="5">Which of the following statements are true with respect to the Business
+                Analysis?</a-typography-title>
+            <div class="flex flex-col bg-gray-100 px-4 py-5">
+                <a-radio-group v-model:value="value">
+                    <a-radio :style="radioStyle" :value="1" v-for="answer in answers">
+                        <a-typography-text>A. It can be used to understand the current state</a-typography-text>
+                    </a-radio>
+                </a-radio-group>
             </div>
-            <div class="mb-4">
-                <QuizAnswer :answers="answers" :key="currentNumberQuestion" />
-            </div>
-            <div class="mb-4">
-                <a-button type="primary" class="!flex" @click="showAnswer = !showAnswer">
+            <div class="mt-5">
+                <a-button type="primary" class="!flex">
                     <template #icon>
                         <component :is="iconMap.eye" />
                     </template>
                     <span>Show answer</span>
                 </a-button>
             </div>
-            <QuizExplanation v-if="showAnswer" :explaination="question.general_feedback" />
-            <div class="flex justify-between mt-8">
-                <a-button class="!flex" @click="prev()" :disabled="disableBtnPrev">
-                    <template #icon>
-                        <component :is="iconMap.prev" />
-                    </template>
-                    <span>Prev</span>
-                </a-button>
-                <a-button class="!flex" @click="next()" :disabled="disableBtnNext">
-                    <span>Next</span>
-                    <template #icon>
-                        <component :is="iconMap.next" />
-                    </template>
-                </a-button>
+            <div class="mt-5 flex flex-col">
+                <a-typography-text>Explanation:</a-typography-text>
+                <div class="mt-4">
+                    <a-typography-text>Choice D is the correct answer.</a-typography-text>
+                    <a-typography-text>Business analysis may be performed within the boundaries of a project or throughout
+                        enterprise evolution and continuous improvement. It can be used to</a-typography-text>
+                </div>
             </div>
         </a-card>
     </div>
 </template>
+
+<style lang="scss">
+.custom {
+    @apply !flex !flex-col;
+}
+</style>

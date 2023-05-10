@@ -3,7 +3,7 @@ package grpc
 import (
 	"backend/internal/tasks/domain"
 	"backend/internal/tasks/usecase"
-	"backend/pkg/bindings"
+	"backend/pkg"
 	"backend/pkg/middleware"
 	"backend/proto/gen"
 	"context"
@@ -15,13 +15,12 @@ type TaskGRPCServer struct {
 	authClient *middleware.Authorization
 }
 
-func NewTaskGRPCServer(grpcServer *bindings.App, taskUC usecase.TaskUsecase, authClient *middleware.Authorization) *TaskGRPCServer {
+func NewTaskGRPCServer(app *pkg.App, taskUC usecase.TaskUsecase, authClient *middleware.Authorization) *TaskGRPCServer {
 	taskGrpcServer := &TaskGRPCServer{
 		taskUC:     taskUC,
 		authClient: authClient,
 	}
-
-	gen.RegisterTaskServiceServer(grpcServer.GrpcServer, taskGrpcServer)
+	gen.RegisterTaskServiceServer(app.GrpcServer, taskGrpcServer)
 
 	return taskGrpcServer
 }

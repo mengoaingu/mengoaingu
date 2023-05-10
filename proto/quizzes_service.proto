@@ -1,0 +1,107 @@
+syntax="proto3";
+
+package go.todoapp.proto.task;
+
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/wrappers.proto";
+import "google/api/annotations.proto";
+import "protoc-gen-openapiv2/options/annotations.proto";
+import "quizzes.proto";
+
+option go_package = "backend/proto/gen";
+
+service QuizzesService {
+    rpc GetListTopics(GetListTopicsRequest) returns (GetListTopicsResponse) {
+        option (google.api.http) = {
+            get: "/v1/topics"
+        };
+        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
+            summary: "List exam"
+            description: "List exam on the server."
+            tags: "Exam"
+        };
+    }
+    rpc GetListQuizzes(GetListQuizzesRequest) returns (GetListQuizzesResponse) {
+        option (google.api.http) = {
+            get: "/v1/quizzes/{topic_id}"
+        };
+        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
+            summary: "List exam"
+            description: "List exam on the server."
+            tags: "Exam"
+        };
+    }
+
+    rpc StartQuiz(StartQuizRequest) returns (StartQuizResponse) {
+        option (google.api.http) = {
+            post: "/v1/start-quiz/{quiz_id}"
+            body: "*"
+        };
+        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
+            summary: "Get exam"
+            description: "Get exam on the server."
+            tags: "Exam"
+        };
+    }
+ 
+    rpc SubmitQuiz(SubmitQuizRequest) returns (SubmitQuizResponse) {
+        option (google.api.http) = {
+            post: "/v1/submit-quiz/{quiz_report_id}"
+            body: "*"
+        };
+        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
+            summary: "Get exam"
+            description: "Get exam on the server."
+            tags: "Exam"
+        };
+    }
+}
+
+message GetListTopicsRequest {}
+
+message GetListTopicsResponse {
+    Data data = 1;
+    message Data {
+        repeated Topic topics = 1;
+        int64 total = 2;
+    }
+
+}
+
+message GetListQuizzesRequest {
+    int64 topic_id = 1;
+}
+
+message GetListQuizzesResponse {
+    Data data = 1;
+    message Data {
+        repeated Quiz quizzes = 1;
+        int64 total = 2;
+    }
+}
+
+
+message StartQuizRequest {
+    int64 quiz_id = 1;
+}
+
+message StartQuizResponse {
+    Data data = 1;
+    message Data {
+        QuizReport quiz_report = 1;
+        repeated Quiz quizs = 2;
+    }
+}
+
+message SubmitQuizRequest {
+    int64 quiz_report_id = 1;
+    string answers = 2;
+}
+
+message SubmitQuizResponse {
+    Data data = 1;
+    message Data {
+        QuizReport quiz_report = 1;
+    }
+}
+
