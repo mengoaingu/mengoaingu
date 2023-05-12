@@ -24,23 +24,20 @@ type (
 func NewConfig() (*Config, error) {
 	var config Config
 	workdir, err := os.Getwd()
-
+	fmt.Println(workdir)
 	if err != nil {
 		fmt.Println(err)
 		os.Exit(1)
 	}
 	// Search config in home directory with name ".server" (without extension).
-	viper.AddConfigPath(workdir + "/configs")
+	viper.AddConfigPath(workdir)
 	viper.SetConfigType("env")
-	// viper.SetConfigName("config.toml")
-
-	viper.AutomaticEnv() // read in environment variables that match
+	viper.SetConfigName("dev.env")
 
 	// If a config file is found, read it in.
 	if err := viper.ReadInConfig(); err == nil {
 		fmt.Println("Using config file:", viper.ConfigFileUsed())
 	}
 	err = viper.Unmarshal(&config)
-
 	return &config, err
 }
