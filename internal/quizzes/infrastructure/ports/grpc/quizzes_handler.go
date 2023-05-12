@@ -2,7 +2,7 @@ package grpc
 
 import (
 	"backend/internal/quizzes/usecase"
-	"backend/pkg/bindings"
+	"backend/pkg"
 	"backend/pkg/middleware"
 	"backend/proto/gen"
 	"context"
@@ -13,7 +13,7 @@ type QuizzesGRPCServer struct {
 	authClient *middleware.Authorization
 }
 
-func NewQuizzesGRPCServer(grpcServer *bindings.App, taskUC usecase.QuizzesUsecase, authClient *middleware.Authorization) *QuizzesGRPCServer {
+func NewQuizzesGRPCServer(grpcServer *pkg.App, taskUC usecase.QuizzesUsecase, authClient *middleware.Authorization) *QuizzesGRPCServer {
 	quizzesGRPCServer := &QuizzesGRPCServer{
 		authClient: authClient,
 	}

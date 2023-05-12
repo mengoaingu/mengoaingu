@@ -15,7 +15,7 @@ import (
 )
 
 var (
-	moduleName = "tasks"
+	moduleName = "TASKS"
 
 	Module = fx.Options(
 		fx.Provide(CreateMySQLDB),
@@ -27,11 +27,11 @@ var (
 
 func CreateMySQLDB() repository.TasksDB {
 	var dsn string
-	v := viper.GetString(moduleName + ".mysql.dsn")
+	v := viper.GetString(moduleName + "_MYSQL_DSN")
 	if v != "" {
 		dsn = v
 	} else {
-		panic(errors.New(moduleName + ".mysql.dsn is not set"))
+		panic(errors.New(moduleName + "_MYSQL_DSN is not set"))
 	}
 	db, err := sql.Open("mysql", dsn)
 	if err != nil {

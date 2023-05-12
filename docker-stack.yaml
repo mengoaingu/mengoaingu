@@ -1,0 +1,80 @@
+version: "3.7"
+
+services:
+  traefik:
+    image: "traefik:v2.10"
+    command:
+      - "--log.level=DEBUG"
+      - "--api.insecure=true"
+      - "--providers.docker=true"
+      - "--providers.docker.exposedbydefault=false"
+      - "--entrypoints.web.address=:80"
+      - "--entrypoints.web.http.redirections.entrypoint.to=websecure"
+      - "--entrypoints.web.http.redirections.entrypoint.scheme=https"
+      - "--entrypoints.websecure.address=:443"
+      - "--certificatesresolvers.myresolver.acme.tlschallenge=true"
+      - "--certificatesresolvers.myresolver.acme.caserver=https://acme-v02.api.letsencrypt.org/directory"
+      - "--certificatesresolvers.myresolver.acme.email=thanhduongbkdn2015@gmail.com"
+      - "--certificatesresolvers.myresolver.acme.storage=/letsencrypt/acme.json"
+    ports:
+      - "80:80"
+      - "443:443"
+      - "8080:8080"
+    volumes:
+      - "letsencrypt:/letsencrypt"
+      - "/var/run/docker.sock:/var/run/docker.sock:ro"
+
+  mysql:
+    image: mysql:8.0
+    hostname: mysql
+    command: '--default-authentication-plugin=mysql_native_password'
+    deploy:
+      placement:
+        constraints:
+          - node.role == manager
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+    volumes:
+      - dbdata:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+
+  runner:
+    image: myoung34/github-runner:latest
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      RUNNER_SCOPE: repo
+      RUNNER_NAME_PREFIX: myrunner
+      LABELS: local-runner
+      REPO_URL: https://github.com/mengoaingu/mengoaingu
+      EPHEMERAL: 1
+      ACCESS_TOKEN: ${GITHUB_ACCESS_TOKEN}
+
+  portainer:
+    image: portainer/portainer-ce:2.9.3
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.services.portainer.loadbalancer.server.port=9443"
+      - "traefik.http.routers.portainer.rule=Host(`portainer.${DOMAIN_NAME}`)"
+      - "traefik.http.routers.portainer.entrypoints=websecure"
+      - "traefik.http.routers.portainer.tls.certresolver=myresolver"
+    volumes:
+      - portainer_data:/data
+      - /var/run/docker.sock:/var/run/docker.sock
+
+networks:
+  default:
+    name: mengoaingu-nw
+
+volumes:
+  dbdata:
+    external: true
+  portainer_data:
+    external: true
+  letsencrypt:
+    external: true

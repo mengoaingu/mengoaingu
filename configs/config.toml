@@ -1,2 +1,0 @@
-[services.kafka]
-brokers = ["localhost:9092"]
