@@ -7,6 +7,8 @@ package cmd
 import (
 	"backend/pkg"
 	"backend/pkg/bindings"
+	"backend/pkg/common"
+	"backend/pkg/common/kafka"
 	"backend/pkg/config"
 	"backend/pkg/firebase"
 	"backend/pkg/middleware"
@@ -19,8 +21,6 @@ import (
 	"os"
 	"regexp"
 	"time"
-
-	common "backend/pkg/common/kafka"
 
 	"github.com/ThreeDotsLabs/watermill"
 	wkafka "github.com/ThreeDotsLabs/watermill-kafka/v2/pkg/kafka"
@@ -64,7 +64,7 @@ to quickly create a Cobra application.`,
 			fx.Provide(http.NewServeMux),
 			fx.Invoke(
 				startServer,
-				// invokeMessaging,
+				invokeMessaging,
 			),
 		)
 		app.Run()
@@ -90,8 +90,8 @@ func initConfig() {
 		}
 		// Search config in home directory with name ".server" (without extension).
 		viper.AddConfigPath(workdir)
-		viper.SetConfigType("toml")
-		viper.SetConfigName("config.toml")
+		viper.SetConfigType("env")
+		viper.SetConfigName("config.env")
 	}
 
 	viper.AutomaticEnv() // read in environment variables that match
@@ -108,7 +108,7 @@ func startServer(ctx context.Context, cfg *config.Config, app *pkg.App) {
 }
 
 func startServerGRPC(cfg *config.Config, handler *pkg.App) {
-	address := fmt.Sprintf("%s:%d", cfg.Server.HOST, cfg.Server.GRPC_PORT)
+	address := fmt.Sprintf("%s:%d", cfg.HOST, cfg.GRPC_PORT)
 	network := "tcp"
 	l, err := net.Listen(network, address)
 	if err != nil {
@@ -135,11 +135,11 @@ func startServerHTTP(ctx context.Context, cfg *config.Config, handler *pkg.App) 
 	gen.RegisterQuizzesServiceHandlerFromEndpoint(ctx, handler.Mux, "localhost:9090", []grpc.DialOption{grpc.WithInsecure()})
 	gen.RegisterTaskServiceHandlerFromEndpoint(ctx, handler.Mux, "localhost:9090", []grpc.DialOption{grpc.WithInsecure()})
 	s := &http.Server{
-		Addr:    fmt.Sprintf("%s:%d", cfg.Server.HOST, cfg.Server.EXTERNAL_HTTP_PORT),
+		Addr:    fmt.Sprintf("%s:%d", cfg.HOST, cfg.EXTERNAL_HTTP_PORT),
 		Handler: cors(handler.Mux),
 	}
 
-	log.Info("start listening...", " address ", fmt.Sprintf("%s:%d", cfg.Server.HOST, cfg.Server.EXTERNAL_HTTP_PORT))
+	log.Info("start listening...", " address ", fmt.Sprintf("%s:%d", cfg.HOST, cfg.EXTERNAL_HTTP_PORT))
 
 	if err := s.ListenAndServe(); errors.Is(err, http.ErrServerClosed) {
 		log.Error("failed to listen and serve", err)
@@ -172,7 +172,7 @@ func cors(h http.Handler) http.Handler {
 
 func invokeMessaging() error {
 	subscriber, err := wkafka.NewSubscriber(
-		common.NewKafkaWatermillSubscriberConfig("trong_test_kafka"),
+		kafka.NewKafkaWatermillSubscriberConfig("trong_test_kafka"),
 		watermill.NewStdLogger(false, false),
 	)
 	if err != nil {
@@ -181,7 +181,7 @@ func invokeMessaging() error {
 	go consume(context.Background(), subscriber)
 
 	publisher, err := wkafka.NewPublisher(
-		common.NewKafkaWatermillPublisherConfig(),
+		kafka.NewKafkaWatermillPublisherConfig(),
 		watermill.NewStdLogger(false, false),
 	)
 	go produce(publisher)
@@ -197,10 +197,13 @@ func produce(pub *wkafka.Publisher) {
 	i := 0
 
 	for {
-
-		err := pub.Publish("trong_test_kafka", &message.Message{
-			UUID: watermill.NewUUID(),
-		})
+		idgen := common.NewLocalSonyFlakeIdGenerator()
+		id, err := idgen.NextID(context.Background())
+		if err != nil {
+			panic("could not generate id " + err.Error())
+		}
+		msg := message.NewMessage(id, []byte(fmt.Sprintf("Hello, world! %d", i)))
+		err = pub.Publish("trong_test_kafka", msg)
 		if err != nil {
 			panic("could not send message " + err.Error())
 		}
@@ -209,7 +212,7 @@ func produce(pub *wkafka.Publisher) {
 		fmt.Println("writes:", i)
 		i++
 		// sleep for a second
-		time.Sleep(time.Millisecond)
+		time.Sleep(time.Millisecond * 5)
 	}
 }
 func consume(ctx context.Context, sub *wkafka.Subscriber) {
@@ -217,13 +220,22 @@ func consume(ctx context.Context, sub *wkafka.Subscriber) {
 	// the groupID identifies the consumer and prevents
 	// it from receiving duplicate messages
 
-	for {
-		// the `ReadMessage` method blocks until we receive the next event
-		msg, err := sub.Subscribe(ctx, "trong_test_kafka")
-		if err != nil {
-			panic("could not read message " + err.Error())
-		}
-		// after receiving the message, log its value
-		fmt.Println("received: ", msg)
+	// the `ReadMessage` method blocks until we receive the next event
+	msg, err := sub.Subscribe(ctx, "trong_test_kafka")
+	if err != nil {
+		panic("could not read message " + err.Error())
+	}
+	// after receiving the message, log its value
+	go process(msg)
+
+}
+
+func process(messages <-chan *message.Message) {
+	for msg := range messages {
+		fmt.Printf("received message: %s, payload: %s\n", msg.UUID, string(msg.Payload))
+
+		// we need to Acknowledge that we received and processed the message,
+		// otherwise, it will be resent over and over again.
+		msg.Ack()
 	}
 }

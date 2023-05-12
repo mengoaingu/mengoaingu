@@ -1,70 +1,6 @@
 version: "3.7"
 
 services:
-  traefik:
-    image: "traefik:v2.10"
-    labels:
-      - "traefik.http.middlewares.httpsonly.redirectscheme.scheme=https"
-      - "traefik.http.middlewares.httpsonly.redirectscheme.permanent=true"
-      - "traefik.http.routers.httpsonly.rule=HostRegexp(`{any:.*}`)"
-      - "traefik.http.routers.httpsonly.middlewares=httpsonly"
-      - "traefik.http.routers.dashboard.rule=Host(`traefik.${DOMAIN_NAME}`)"
-      - "traefik.http.routers.dashboard.service=dashboard@internal"
-      - "traefik.http.routers.api.rule=Host(`traefik.${DOMAIN_NAME}`) && PathPrefix(`/api`)"
-      - "traefik.http.routers.api.service=api@internal"
-      - "traefik.http.routers.dashboard.tls=true"
-      # - "traefik.http.routers.dashboard.tls.certresolver=myresolver"
-      - "traefik.http.routers.api.tls=true"
-      # - "traefik.http.routers.api.tls.certresolver=myresolver"
-    command:
-      - "--log.level=DEBUG"
-      - "--providers.docker"
-      - "--api.insecure=true"
-      - "--entryPoints.web.address=:80"
-      - "--entryPoints.websecure.address=:443"
-      # - "--certificatesresolvers.myresolver.acme.tlschallenge=true"
-      # - "--certificatesresolvers.myresolver.acme.caserver=https://acme-staging-v02.api.letsencrypt.org/directory"
-      # - "--certificatesresolvers.myresolver.acme.email=thanhduongbkdn2015@gmail.com"
-      # - "--certificatesresolvers.myresolver.acme.storage=/letsencrypt/acme.json"
-    ports:
-      - "443:443"
-      - "80:80"
-    volumes:
-      # - "./letsencrypt:/letsencrypt"
-      - "/var/run/docker.sock:/var/run/docker.sock:ro"
-      - ./docker-compose/traefik/certs:/etc/certs:ro
-      - ./docker-compose/traefik/providers/dynamic_conf.yaml:/etc/traefik/dynamic_conf.yaml:ro
-      - ./docker-compose/traefik/traefik.yaml:/etc/traefik/traefik.yaml:ro
-  # web:
-  #   image: playlistduong/mengoaingu:web
-  #   labels:
-  #     - "traefik.enable=true"
-  #     - traefik.http.services.service.loadbalancer.server.port=3000 
-  #     - "traefik.http.routers.app.rule=Host(`app.localhost`)"
-  #     - "traefik.http.routers.app.entrypoints=websecure"
-  #     - "traefik.http.routers.app.tls=true"
-  #   restart: always
-  # runner:
-  #   image: myoung34/github-runner:latest
-  #   restart: always
-  #   volumes:
-  #     - /var/run/docker.sock:/var/run/docker.sock
-  #   environment:
-  #     RUNNER_SCOPE: repo
-  #     RUNNER_NAME_PREFIX: myrunner
-  #     LABELS: local-runner
-  #     REPO_URL: https://github.com/mengoaingu/mengoaingu
-  #     EPHEMERAL: 1
-  #     ACCESS_TOKEN: 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
-  #   deploy:
-  #     replicas: 1
-  #     resources:
-  #       limits:
-  #         cpus: '2'
-  #         memory: 4G
-  #       reservations:
-  #         cpus: '0.2'
-  #         memory: 256M
   mysqld:
     healthcheck:
       test: [ "CMD", "mysqladmin", "ping", "-h", "localhost", "-p123456" ]
@@ -102,6 +38,7 @@ services:
     hostname: broker
     depends_on:
       - zookeeper
+    
     ports:
       - "29092:29092"
       - "9092:9092"
@@ -117,6 +54,48 @@ services:
       KAFKA_GROUP_INITIAL_REBALANCE_DELAY_MS: 0
       KAFKA_JMX_PORT: 9101
       KAFKA_JMX_HOSTNAME: localhost
+
       
 networks:
   mengoaingu-network:
+
+
+    # schema-registry:
+  #   image: confluentinc/cp-schema-registry:7.0.1
+  #   platform: linux/amd64
+  #   logging:
+  #     options:
+  #       max-size: 10m
+  #   depends_on:
+  #     - broker
+  #   environment:
+  #     SCHEMA_REGISTRY_HEAP_OPTS: "-Xmx128M -Xms128M"
+  #     SCHEMA_REGISTRY_HOST_NAME: schema-registry
+  #     SCHEMA_REGISTRY_KAFKASTORE_BOOTSTRAP_SERVERS: 'broker:29092'
+  #     SCHEMA_REGISTRY_LISTENERS: http://0.0.0.0:8081
+  # connect:
+  #   image: debezium/connect:1.8.0.Final
+  #   platform: linux/amd64
+  #   logging:
+  #     options:
+  #       max-size: 10m
+  #   depends_on:
+  #     - broker
+  #     - schema-registry
+  #   ports:
+  #     - "8083:8083"
+  #   environment:
+  #     HEAP_OPTS: "-Xmx256M -Xms128M"
+  #     GROUP_ID: debezium-connect-group
+  #     CONFIG_STORAGE_TOPIC: debezium-connect-configs
+  #     OFFSET_STORAGE_TOPIC: debezium-connect-offsets
+  #     ADVERTISED_HOST_NAME: connect
+  #     BOOTSTRAP_SERVERS: 'broker:29092'
+  #     REST_ADVERTISED_HOST_NAME: connect
+  #     CONFIG_STORAGE_REPLICATION_FACTOR: 1
+  #     OFFSET_FLUSH_INTERVAL_MS: 10000
+  #     OFFSET_STORAGE_REPLICATION_FACTOR: 1
+  #     STATUS_STORAGE_TOPIC: debezium-connect-status
+  #     STATUS_STORAGE_REPLICATION_FACTOR: 1
+  #     VALUE_CONVERTER_SCHEMA_REGISTRY_URL: http://schema-registry:8081
+  #     LOG4J_LOGGERS: org.apache.zookeeper=ERROR,org.I0Itec.zkclient=ERROR,org.reflections=ERROR

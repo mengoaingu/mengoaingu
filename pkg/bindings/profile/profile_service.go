@@ -15,7 +15,7 @@ import (
 )
 
 var (
-	moduleName = "profile"
+	moduleName = "PROFILE"
 
 	Module = fx.Options(
 		fx.Provide(CreateMySQLDB),
@@ -27,7 +27,7 @@ var (
 
 func CreateMySQLDB() repository.ProfileDB {
 	var dsn string
-	v := viper.GetString(moduleName + ".mysql.dsn")
+	v := viper.GetString(moduleName + "_MYSQL_DSN")
 	if v != "" {
 		dsn = v
 	} else {

@@ -4,16 +4,16 @@ go 1.18
 
 require (
 	firebase.google.com/go v3.13.0+incompatible
+	github.com/Shopify/sarama v1.32.0
+	github.com/ThreeDotsLabs/watermill v1.1.1
 	github.com/ThreeDotsLabs/watermill-kafka/v2 v2.2.2
-	github.com/aead/chacha20poly1305 v0.0.0-20201124145622-1a5aba2a8b29
 	github.com/dgrijalva/jwt-go v3.2.0+incompatible
 	github.com/go-sql-driver/mysql v1.7.1
-	github.com/google/wire v0.5.0
 	github.com/grpc-ecosystem/grpc-gateway/v2 v2.15.2
 	github.com/kyleconroy/sqlc v1.18.0
-	github.com/o1egl/paseto v1.0.0
 	github.com/samber/lo v1.38.1
 	github.com/sirupsen/logrus v1.9.0
+	github.com/sony/sonyflake v1.1.0
 	github.com/spf13/cobra v1.7.0
 	github.com/spf13/viper v1.15.0
 	go.uber.org/fx v1.19.2
@@ -35,10 +35,6 @@ require (
 	cloud.google.com/go/iam v0.11.0 // indirect
 	cloud.google.com/go/longrunning v0.3.0 // indirect
 	cloud.google.com/go/storage v1.27.0 // indirect
-	github.com/Shopify/sarama v1.32.0 // indirect
-	github.com/ThreeDotsLabs/watermill v1.1.1 // indirect
-	github.com/aead/chacha20 v0.0.0-20180709150244-8b13a72661da // indirect
-	github.com/aead/poly1305 v0.0.0-20180717145839-3fee0db0b635 // indirect
 	github.com/davecgh/go-spew v1.1.1 // indirect
 	github.com/eapache/go-resiliency v1.2.0 // indirect
 	github.com/eapache/go-xerial-snappy v0.0.0-20180814174437-776d5712da21 // indirect

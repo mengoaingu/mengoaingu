@@ -7,9 +7,9 @@ import (
 
 func getKafkaBrokersCfg() []string {
 	brokers := []string{"localhost:9092"}
-	v := viper.Get("services.kafka.brokers")
-	if viper.IsSet("services.kafka.brokers") {
-		brokers = v.([]string)
+	v := viper.Get("KAFKA_BROKER")
+	if viper.IsSet("KAFKA_BROKER") {
+		brokers = []string{v.(string)}
 	}
 	return brokers
 }
