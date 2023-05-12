@@ -75,3 +75,4 @@ sync:
 docker-stack:
 	docker stack deploy -c docker-stack.yaml mengoaingu
 	@GOOS=linux GOARCH=${GOARCH} go build ${LDFLAGS} -o ${BINARY} .
+
