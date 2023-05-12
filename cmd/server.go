@@ -64,7 +64,7 @@ to quickly create a Cobra application.`,
 			fx.Provide(http.NewServeMux),
 			fx.Invoke(
 				startServer,
-				invokeMessaging,
+				// invokeMessaging,
 			),
 		)
 		app.Run()

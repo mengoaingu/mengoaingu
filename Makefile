@@ -8,8 +8,6 @@ CUR_DIR:=$(shell dirname $(realpath $(firstword $(MAKEFILE_LIST))))
 BINARY = "${CUR_DIR}/.bin/apis"
 DOCKER_TAG=apis:latest
 
-include .env
-
 default: help
 
 .PHONY: help
@@ -45,16 +43,6 @@ stop:
 
 clean:
 	@go clean
-
-migrate_up: migrate_profile_up migrate_quiz_up
-
-migrate_profile_up:
-	migrate -path internal/profile/infrastructure/db/migrations -database "mysql://root:123456@tcp(127.0.0.1:3306)/profile?charset=utf8mb4&parseTime=True&loc=Local&multiStatements=true" -verbose up
-
-migrate_quiz_up:
-	migrate -path internal/quizzes/infrastructure/db/migrations -database "mysql://root:123456@tcp(127.0.0.1:3306)/quizzes?charset=utf8mb4&parseTime=True&loc=Local&multiStatements=true" -verbose up
-
-.PHONY: migrate_up migrate_profile_up migrate_quiz_up
 
 gen-api:
 	@buf generate && cp third_party/OpenAPI/mengoaingu.swagger.json swagger_ui/mengoaingu.swagger.json
