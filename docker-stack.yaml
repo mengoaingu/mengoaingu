@@ -1,5 +1,10 @@
 version: "3.7"
 
+secrets:
+
+  GITLAB_REGISTRATION_TOKEN:
+    external: true
+
 services:
   traefik:
     image: "traefik:v2.10"
@@ -44,16 +49,51 @@ services:
       MYSQL_DATABASE: ${MYSQL_DATABASE}
 
   runner:
-    image: myoung34/github-runner:latest
+    image: gitlab/gitlab-runner:latest
+    environment:
+      - CONCURRENT=8
+      - REGISTER_LOCKED=1
+      - REGISTER_NON_INTERACTIVE=1
+      - RUNNER_EXECUTOR=docker
+      - DOCKER_IMAGE=docker
+      - DOCKER_VOLUMES=/var/run/docker.sock:/var/run/docker.sock
+      - RUNNER_NAME=docker
+      - API_URL=https://gitlab.com/api/v4
+      - CI_SERVER_URL=https://gitlab.com/ci
+    entrypoint: "bash"
+    secrets:
+      - GITLAB_REGISTRATION_TOKEN
+    command: |
+      -c '
+        set -e
+        printf "Setting configuration...\\n"
+        export REGISTRATION_TOKEN="$$(cat /run/secrets/GITLAB_REGISTRATION_TOKEN)"
+        sed -i "s/^concurrent = .*/concurrent = $${CONCURRENT}/" /etc/gitlab-runner/config.toml
+        printf "\\n"
+        printf "Registering runner...\\n"
+        gitlab-runner register --non-interactive
+        printf "\\n"
+        printf "List runners...\\n"
+        gitlab-runner list
+        printf "\\n"
+        printf "Running runner...\\n"
+        gitlab-runner run --user=gitlab-runner --working-directory=/home/gitlab-runner
+      '
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-    environment:
-      RUNNER_SCOPE: repo
-      RUNNER_NAME_PREFIX: myrunner
-      LABELS: local-runner
-      REPO_URL: https://github.com/mengoaingu/mengoaingu
-      EPHEMERAL: 1
-      ACCESS_TOKEN: ${GITHUB_ACCESS_TOKEN}
+    deploy:
+      mode: global
+      placement:
+        constraints:
+          - node.role == manager
+      labels:
+        - "traefik.enable=false"
+    healthcheck:
+      test: ["CMD-SHELL", "gitlab-runner verify --name docker 2>&1 | grep --quiet \"is alive\""]
+      start_period: 10s
+      interval: 10s
+      timeout: 10s
+      retries: 10
 
   portainer:
     image: portainer/portainer-ce:2.9.3
