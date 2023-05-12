@@ -1,0 +1,3 @@
+#!/bin/env bash
+migrate -path internal/profile/infrastructure/db/migrations -database "mysql://root:123456@tcp(127.0.0.1:3306)/profile?charset=utf8mb4&parseTime=True&loc=Local&multiStatements=true" -verbose up;
+migrate -path internal/quizzes/infrastructure/db/migrations -database "mysql://root:123456@tcp(127.0.0.1:3306)/quizzes?charset=utf8mb4&parseTime=True&loc=Local&multiStatements=true" -verbose up;
