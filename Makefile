@@ -4,6 +4,8 @@ MKFILE_PATH := $(realpath $(lastword $(MAKEFILE_LIST)))
 
 ## fully-qualified path to the current directory
 CURRENT_DIR := $(patsubst %/,%,$(dir $(MKFILE_PATH)))
+CUR_DIR:=$(shell dirname $(realpath $(firstword $(MAKEFILE_LIST))))
+BINARY = "${CUR_DIR}/.bin/apis"
 DOCKER_TAG=apis:latest
 
 include .env
@@ -66,5 +68,11 @@ swagger-ui:
 linux:
 	@GOOS=linux GOARCH=${GOARCH} CGO_ENABLED=0 go build ${LDFLAGS} -o ${BINARY} .
 
+## Sync the binary to the remote server
+sync:
+	scp -i  ~/.ssh/id_rsa.pub ${BINARY} mengoaingu:/root/app/apis
+
 docker-stack:
 	docker stack deploy -c docker-stack.yaml mengoaingu
+	@GOOS=linux GOARCH=${GOARCH} go build ${LDFLAGS} -o ${BINARY} .
+

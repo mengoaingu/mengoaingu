@@ -9,18 +9,15 @@ import (
 
 type (
 	Config struct {
-		Server struct {
-			APP_NAME           string `mapstructure:"name"`
-			VERSION            string `mapstructure:"version"`
-			HOST               string `mapstructure:"host"`
-			INTERNAL_HTTP_PORT int    `mapstructure:"port_rest_internal"`
-			EXTERNAL_HTTP_PORT int    `mapstructure:"port_rest_external"`
-			GRPC_PORT          int    `mapstructure:"port_grpc"`
-			LOG_LEVEL          string `mapstructure:"logger_level"`
-		} `mapstructure:"server"`
-		Profile struct {
-			MYSQL_DSN string `mapstructure:"mysql_dsn"`
-		} `mapstructure:"profile"`
+		APP_NAME           string `mapstructure:"SERVER_NAME"`
+		VERSION            string `mapstructure:"VERSION"`
+		HOST               string `mapstructure:"HOST"`
+		INTERNAL_HTTP_PORT int    `mapstructure:"PORT_REST_EXTERNAL"`
+		EXTERNAL_HTTP_PORT int    `mapstructure:"PORT_REST_INTERNAL"`
+		GRPC_PORT          int    `mapstructure:"PORT_GRPC"`
+		LOG_LEVEL          string `mapstructure:"LOGGER_LEVEL"`
+		PROFILE_MYSQL_DSN  string `mapstructure:"PROFILE_MYSQL_DSN"`
+		TASKS_MYSQL_DSN    string `mapstructure:"TASKS_MYSQL_DSN"`
 	}
 )
 
@@ -34,7 +31,7 @@ func NewConfig() (*Config, error) {
 	}
 	// Search config in home directory with name ".server" (without extension).
 	viper.AddConfigPath(workdir + "/configs")
-	viper.SetConfigType("toml")
+	viper.SetConfigType("env")
 	// viper.SetConfigName("config.toml")
 
 	viper.AutomaticEnv() // read in environment variables that match
